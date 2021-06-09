@@ -17,7 +17,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 
             StringBuilder builder = new StringBuilder();
 
-            generator.Generate(option, new StringWriter(builder), new GenerateOptions { TabString = "\t" });
+            generator.Generate(option, builder, new GenerateOptions { TabString = "\t" });
 
             var actual = builder.ToString();
 

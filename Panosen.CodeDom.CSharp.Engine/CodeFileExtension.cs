@@ -23,7 +23,7 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             StringBuilder builder = new StringBuilder();
 
-            generator.GenerateCodeFile(codeFile, new StringWriter(builder));
+            generator.GenerateCodeFile(codeFile, builder);
 
             return builder.ToString();
         }
