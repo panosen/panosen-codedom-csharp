@@ -8,6 +8,12 @@ namespace Panosen.CodeDom.CSharp.Engine
 {
     partial class CSharpCodeEngine
     {
+        /// <summary>
+        /// GenerateConstant
+        /// </summary>
+        /// <param name="codeConstant"></param>
+        /// <param name="codeWriter"></param>
+        /// <param name="options"></param>
         public void GenerateConstant(CodeConstant codeConstant, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeConstant == null) { return; }

@@ -27,8 +27,18 @@ namespace Panosen.CodeDom.CSharp
         public bool WithThis { get; set; }
     }
 
+    /// <summary>
+    /// CodeParameterExtension
+    /// </summary>
     public static class CodeParameterExtension
     {
+        /// <summary>
+        /// AddAttribute
+        /// </summary>
+        /// <typeparam name="TCodeParameter"></typeparam>
+        /// <param name="codeParameter"></param>
+        /// <param name="codeAttribute"></param>
+        /// <returns></returns>
         public static TCodeParameter AddAttribute<TCodeParameter>(this TCodeParameter codeParameter, CodeAttribute codeAttribute)
             where TCodeParameter : CodeParameter
         {
@@ -42,6 +52,13 @@ namespace Panosen.CodeDom.CSharp
             return codeParameter;
         }
 
+        /// <summary>
+        /// AddAttribute
+        /// </summary>
+        /// <typeparam name="TCodeParameter"></typeparam>
+        /// <param name="codeParameter"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static TCodeParameter AddAttribute<TCodeParameter>(this TCodeParameter codeParameter, string name)
             where TCodeParameter : CodeParameter
         {

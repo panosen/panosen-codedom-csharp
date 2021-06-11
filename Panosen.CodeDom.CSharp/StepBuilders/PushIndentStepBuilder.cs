@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Panosen.CodeDom.CSharp
 {
+    /// <summary>
+    /// PushIndentStepBuilder
+    /// </summary>
     public class PushIndentStepBuilder : StepBuilderCollection
     {
+        /// <summary>
+        /// Key
+        /// </summary>
         public string Key { get; set; }
     }
 }

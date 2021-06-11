@@ -9,6 +9,12 @@ namespace Panosen.CodeDom.CSharp.Engine
 {
     partial class CSharpCodeEngine
     {
+        /// <summary>
+        /// GenerateParameter
+        /// </summary>
+        /// <param name="codeParameter"></param>
+        /// <param name="codeWriter"></param>
+        /// <param name="options"></param>
         public void GenerateParameter(CodeParameter codeParameter, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeParameter == null) { return; }

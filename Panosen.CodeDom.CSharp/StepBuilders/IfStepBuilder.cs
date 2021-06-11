@@ -6,17 +6,38 @@ using System.Threading.Tasks;
 
 namespace Panosen.CodeDom.CSharp
 {
+    /// <summary>
+    /// IfStepBuilder
+    /// </summary>
     public class IfStepBuilder : StepBuilderCollection
     {
+        /// <summary>
+        /// Condition
+        /// </summary>
         public string Condition { get; set; }
 
+        /// <summary>
+        /// ElseIfStepBuilders
+        /// </summary>
         public List<ElseIfStepBuilder> ElseIfStepBuilders { get; set; }
 
+        /// <summary>
+        /// ElseStepBuilder
+        /// </summary>
         public ElseStepBuilder ElseStepBuilder { get; set; }
     }
 
+    /// <summary>
+    /// IfStepBuilderExtension
+    /// </summary>
     public static class IfStepBuilderExtension
     {
+        /// <summary>
+        /// WithElseIf
+        /// </summary>
+        /// <param name="ifStepBuilder"></param>
+        /// <param name="condition"></param>
+        /// <returns></returns>
         public static ElseIfStepBuilder WithElseIf(this IfStepBuilder ifStepBuilder, string condition)
         {
             if (ifStepBuilder.ElseIfStepBuilders == null)
@@ -31,6 +52,11 @@ namespace Panosen.CodeDom.CSharp
             return elseIfStepBuilder;
         }
 
+        /// <summary>
+        /// WithElse
+        /// </summary>
+        /// <param name="ifStepBuilder"></param>
+        /// <returns></returns>
         public static ElseStepBuilder WithElse(this IfStepBuilder ifStepBuilder)
         {
             ElseStepBuilder elseStepBuilder = new ElseStepBuilder();

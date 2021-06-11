@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Panosen.CodeDom.CSharp
 {
+    /// <summary>
+    /// EnumBinaryOperator
+    /// </summary>
     public enum EnumBinaryOperator
     {
         /// <summary>
@@ -69,7 +72,7 @@ namespace Panosen.CodeDom.CSharp
         BooleanOr,
 
         /// <summary>
-        /// &&
+        /// &amp;&amp;
         /// </summary>
         BooleanAnd,
 

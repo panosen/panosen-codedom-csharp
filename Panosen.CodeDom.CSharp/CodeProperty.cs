@@ -52,8 +52,18 @@ namespace Panosen.CodeDom.CSharp
         public StepBuilderCollection SetStepBuilderCollection { get; set; }
     }
 
+    /// <summary>
+    /// CodePropertyExtension
+    /// </summary>
     public static class CodePropertyExtension
     {
+        /// <summary>
+        /// AddAttribute
+        /// </summary>
+        /// <typeparam name="TCodeProperty"></typeparam>
+        /// <param name="codeProperty"></param>
+        /// <param name="codeAttribute"></param>
+        /// <returns></returns>
         public static TCodeProperty AddAttribute<TCodeProperty>(this TCodeProperty codeProperty, CodeAttribute codeAttribute) where TCodeProperty : CodeProperty
         {
             if (codeProperty.AttributeList == null)
@@ -66,6 +76,12 @@ namespace Panosen.CodeDom.CSharp
             return codeProperty;
         }
 
+        /// <summary>
+        /// AddAttribute
+        /// </summary>
+        /// <param name="codeProperty"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static CodeAttribute AddAttribute(this CodeProperty codeProperty, string name)
         {
             if (codeProperty.AttributeList == null)
@@ -81,6 +97,13 @@ namespace Panosen.CodeDom.CSharp
             return codeAttribute;
         }
 
+        /// <summary>
+        /// AddGetStepBuilderCollection
+        /// </summary>
+        /// <typeparam name="TCodeProperty"></typeparam>
+        /// <param name="codeProperty"></param>
+        /// <param name="stepBuilderCollection"></param>
+        /// <returns></returns>
         public static TCodeProperty AddGetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepBuilderCollection stepBuilderCollection) where TCodeProperty : CodeProperty
         {
             codeProperty.GetStepBuilderCollection = stepBuilderCollection;
@@ -88,6 +111,11 @@ namespace Panosen.CodeDom.CSharp
             return codeProperty;
         }
 
+        /// <summary>
+        /// AddGetStepBuilderCollection
+        /// </summary>
+        /// <param name="codeProperty"></param>
+        /// <returns></returns>
         public static StepBuilderCollection AddGetStepBuilderCollection(this CodeProperty codeProperty)
         {
             StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();
@@ -97,6 +125,13 @@ namespace Panosen.CodeDom.CSharp
             return stepBuilderCollection;
         }
 
+        /// <summary>
+        /// AddSetStepBuilderCollection
+        /// </summary>
+        /// <typeparam name="TCodeProperty"></typeparam>
+        /// <param name="codeProperty"></param>
+        /// <param name="stepBuilderCollection"></param>
+        /// <returns></returns>
         public static TCodeProperty AddSetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepBuilderCollection stepBuilderCollection) where TCodeProperty : CodeProperty
         {
             codeProperty.SetStepBuilderCollection = stepBuilderCollection;
@@ -104,6 +139,11 @@ namespace Panosen.CodeDom.CSharp
             return codeProperty;
         }
 
+        /// <summary>
+        /// AddSetStepBuilderCollection
+        /// </summary>
+        /// <param name="codeProperty"></param>
+        /// <returns></returns>
         public static StepBuilderCollection AddSetStepBuilderCollection(this CodeProperty codeProperty)
         {
             StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();

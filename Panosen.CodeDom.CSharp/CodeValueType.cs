@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Panosen.CodeDom.CSharp
 {
+    /// <summary>
+    /// CodeValueType
+    /// </summary>
     public enum CodeValueType
     {
         /// <summary>
