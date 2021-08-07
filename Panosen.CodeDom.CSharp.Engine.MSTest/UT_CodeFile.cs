@@ -54,19 +54,19 @@ namespace TheNamespace
         {
             CodeFile codeFile = new CodeFile();
 
+            codeFile.AddSystemUsing(SystemUsing.System);
+            codeFile.AddSystemUsing(SystemUsing.SystemLinq);
+
+            codeFile.AddNugetUsing("Newtonsoft.Json");
+
+            codeFile.AddProjectUsing("Sample");
+
             CodeNamespace codeNamespace = codeFile.AddNamespace("TheNamespace");
 
             codeNamespace.ClassList = new List<CodeClass>();
             for (int i = 0; i < 2; i++)
             {
                 CodeClass codeClass = codeNamespace.AddClass($"MyClass{i}", summary: $"Myclass {i}");
-
-                codeClass.AddSystemUsing(SystemUsing.System);
-                codeClass.AddSystemUsing(SystemUsing.SystemLinq);
-
-                codeClass.AddNugetUsing("Newtonsoft.Json");
-
-                codeClass.AddProjectUsing("Sample");
             }
 
             return codeFile;

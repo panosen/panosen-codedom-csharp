@@ -7,7 +7,7 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// 类
     /// </summary>
-    public class CodeClass : CodeObject, INamespace
+    public class CodeClass : CodeObject
     {
         /// <summary>
         /// 是否是抽象类

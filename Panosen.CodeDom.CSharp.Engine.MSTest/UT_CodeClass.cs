@@ -93,10 +93,6 @@ public class Student
             codeClass.Summary = "学生";
             codeClass.AccessModifiers = AccessModifiers.Public;
 
-            codeClass.AddSystemUsing(SystemUsing.SystemText);
-            codeClass.AddNugetUsing("Newtonsoft.Json");
-            codeClass.AddProjectUsing("SampleProject");
-
             codeClass.PropertyList = new List<CodeProperty>();
             for (int i = 0; i < 2; i++)
             {

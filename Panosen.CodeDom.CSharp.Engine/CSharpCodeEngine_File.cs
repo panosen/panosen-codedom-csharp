@@ -27,21 +27,18 @@ namespace Panosen.CodeDom.CSharp.Engine
 
         private void GenerateUsing(CodeWriter codeWriter, CodeFile codeFile)
         {
-            List<string> systemUsing = new List<string>();
-            List<string> nugetUsing = new List<string>();
-            List<string> projectUsing = new List<string>();
-
-            AddTo(systemUsing, codeFile.NamespaceList.SelectMany(v => v.ClassList.SelectMany(x => x.SystemUsingList ?? new List<string>())).ToList());
-            AddTo(nugetUsing, codeFile.NamespaceList.SelectMany(v => v.ClassList.SelectMany(x => x.NugetUsingList ?? new List<string>())).ToList());
-            AddTo(projectUsing, codeFile.NamespaceList.SelectMany(v => v.ClassList.SelectMany(x => x.ProjectUsingList ?? new List<string>())).ToList());
-
-            systemUsing = systemUsing.Distinct().OrderBy(v => v).ToList();
-            nugetUsing = nugetUsing.Distinct().OrderBy(v => v).ToList();
-            projectUsing = projectUsing.Distinct().OrderBy(v => v).ToList();
-
-            WriteUsing(codeWriter, systemUsing);
-            WriteUsing(codeWriter, nugetUsing);
-            WriteUsing(codeWriter, projectUsing);
+            if (codeFile.SystemUsingList != null && codeFile.SystemUsingList.Count > 0)
+            {
+                WriteUsing(codeWriter, codeFile.SystemUsingList.Distinct().OrderBy(v => v).ToList());
+            }
+            if (codeFile.NugetUsingList != null && codeFile.NugetUsingList.Count > 0)
+            {
+                WriteUsing(codeWriter, codeFile.NugetUsingList.Distinct().OrderBy(v => v).ToList());
+            }
+            if (codeFile.ProjectUsingList != null && codeFile.ProjectUsingList.Count > 0)
+            {
+                WriteUsing(codeWriter, codeFile.ProjectUsingList.Distinct().OrderBy(v => v).ToList());
+            }
         }
 
         private void GenerateNamespaceList(CodeWriter codeWriter, List<CodeNamespace> namespaceList, GenerateOptions options)
@@ -70,16 +67,6 @@ namespace Panosen.CodeDom.CSharp.Engine
             }
 
             codeWriter.WriteLine();
-        }
-
-        private void AddTo(List<string> target, List<string> items)
-        {
-            if (items == null || items.Count == 0)
-            {
-                return;
-            }
-
-            target.AddRange(items);
         }
     }
 }

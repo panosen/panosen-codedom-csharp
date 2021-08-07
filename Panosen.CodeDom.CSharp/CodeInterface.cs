@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// 接口
     /// </summary>
-    public class CodeInterface : CodeObject, INamespace
+    public class CodeInterface : CodeObject
     {
         /// <summary>
         /// 访问修饰符

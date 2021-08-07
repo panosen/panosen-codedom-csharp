@@ -15,6 +15,21 @@ namespace Panosen.CodeDom.CSharp
         /// 命名空间
         /// </summary>
         public List<CodeNamespace> NamespaceList { get; set; }
+
+        /// <summary>
+        /// 系统引用
+        /// </summary>
+        public List<string> SystemUsingList { get; set; }
+
+        /// <summary>
+        /// 从nuget包里面的引用
+        /// </summary>
+        public List<string> NugetUsingList { get; set; }
+
+        /// <summary>
+        /// 当前项目的引用
+        /// </summary>
+        public List<string> ProjectUsingList { get; set; }
     }
 
     /// <summary>
@@ -52,6 +67,55 @@ namespace Panosen.CodeDom.CSharp
             codeFile.NamespaceList.Add(codeNamespace);
 
             return codeNamespace;
+        }
+
+
+        /// <summary>
+        /// 添加一个System引用
+        /// </summary>
+        public static TCodeFile AddSystemUsing<TCodeFile>(this TCodeFile codeFile, string systemUsing)
+            where TCodeFile : CodeFile
+        {
+            if (codeFile.SystemUsingList == null)
+            {
+                codeFile.SystemUsingList = new List<string>();
+            }
+
+            codeFile.SystemUsingList.Add(systemUsing);
+
+            return codeFile;
+        }
+
+        /// <summary>
+        /// 添加一个Nuget引用
+        /// </summary>
+        public static TCodeFile AddNugetUsing<TCodeFile>(this TCodeFile codeFile, string nugetUsing)
+            where TCodeFile : CodeFile
+        {
+            if (codeFile.NugetUsingList == null)
+            {
+                codeFile.NugetUsingList = new List<string>();
+            }
+
+            codeFile.NugetUsingList.Add(nugetUsing);
+
+            return codeFile;
+        }
+
+        /// <summary>
+        /// 添加一个Project引用
+        /// </summary>
+        public static TCodeFile AddProjectUsing<TCodeFile>(this TCodeFile codeFile, string projectUsing)
+            where TCodeFile : CodeFile
+        {
+            if (codeFile.ProjectUsingList == null)
+            {
+                codeFile.ProjectUsingList = new List<string>();
+            }
+
+            codeFile.ProjectUsingList.Add(projectUsing);
+
+            return codeFile;
         }
     }
 }
