@@ -15,9 +15,16 @@ namespace Panosen.CodeDom.CSharp.Engine
             options = options ?? new GenerateOptions();
 
             codeWriter.Write(options.IndentString).Write(Keywords.CATCH);
-            if (!string.IsNullOrEmpty(catchStepBuilder.Content))
+            if (!string.IsNullOrEmpty(catchStepBuilder.ExceptionType))
             {
-                codeWriter.Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACKET).Write(catchStepBuilder.Content).Write(Marks.RIGHT_BRACKET);
+                codeWriter.Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACKET).Write(catchStepBuilder.ExceptionType);
+
+                if (!string.IsNullOrEmpty(catchStepBuilder.ExceptionName))
+                {
+                    codeWriter.Write(Marks.WHITESPACE).Write(catchStepBuilder.ExceptionName);
+                }
+
+                codeWriter.Write(Marks.RIGHT_BRACKET);
             }
             codeWriter.WriteLine();
 

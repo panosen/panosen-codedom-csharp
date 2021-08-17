@@ -28,9 +28,9 @@ namespace Panosen.CodeDom.CSharp
     public static class TryStepBuilderExtension
     {
         /// <summary>
-        /// catch(content)
+        /// catch(exceptionType, exceptionName)
         /// </summary>
-        public static CatchStepBuilder WithCatch(this TryStepBuilder tryStepBuilder, string content = null)
+        public static CatchStepBuilder WithCatch(this TryStepBuilder tryStepBuilder, string exceptionType = null, string exceptionName = null)
         {
             if (tryStepBuilder.CatchStepBuilders == null)
             {
@@ -38,7 +38,8 @@ namespace Panosen.CodeDom.CSharp
             }
 
             CatchStepBuilder catchStepBuilder = new CatchStepBuilder();
-            catchStepBuilder.Content = content;
+            catchStepBuilder.ExceptionType = exceptionType;
+            catchStepBuilder.ExceptionName = exceptionName;
             tryStepBuilder.CatchStepBuilders.Add(catchStepBuilder);
 
             return catchStepBuilder;

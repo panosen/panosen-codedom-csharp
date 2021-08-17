@@ -12,8 +12,13 @@ namespace Panosen.CodeDom.CSharp
     public class CatchStepBuilder : StepBuilderCollection
     {
         /// <summary>
-        /// `Excepton e` 或 `Exception`
+        /// Exception
         /// </summary>
-        public string Content { get; set; }
+        public string ExceptionType { get; set; }
+
+        /// <summary>
+        /// e
+        /// </summary>
+        public string ExceptionName { get; set; }
     }
 }
