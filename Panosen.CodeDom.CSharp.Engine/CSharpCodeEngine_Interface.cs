@@ -29,7 +29,27 @@ namespace Panosen.CodeDom.CSharp.Engine
                 codeWriter.Write(codeInterface.AccessModifiers.Value()).Write(Marks.WHITESPACE);
             }
 
-            codeWriter.Write(Keywords.INTERFACE).Write(Marks.WHITESPACE).Write(codeInterface.Name ?? string.Empty).WriteLine();
+            if (codeInterface.IsPartial)
+            {
+                codeWriter.Write(Keywords.PARTIAL).Write(Marks.WHITESPACE);
+            }
+
+            codeWriter.Write(Keywords.INTERFACE).Write(Marks.WHITESPACE).Write(codeInterface.Name ?? string.Empty);
+
+            if (codeInterface.ParentInterfaceList != null && codeInterface.ParentInterfaceList.Count > 0)
+            {
+                codeWriter.Write(Marks.COLON);
+                for (int i = 0; i < codeInterface.ParentInterfaceList.Count; i++)
+                {
+                    codeWriter.Write(Marks.WHITESPACE).Write(codeInterface.ParentInterfaceList[i].Name);
+                    if (i < codeInterface.ParentInterfaceList.Count - 1)
+                    {
+                        codeWriter.Write(Marks.COMMA);
+                    }
+                }
+            }
+
+            codeWriter.WriteLine();
 
             codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
 

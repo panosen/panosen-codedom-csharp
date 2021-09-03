@@ -20,22 +20,22 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	if (1)
-	{
-		ok
-	}
-	else if (b)
-	{
-		333
-	}
-	else if (b2)
-	{
-		3343
-	}
-	else
-	{
-		okok
-	}
+    if (1)
+    {
+        ok
+    }
+    else if (b)
+    {
+        333
+    }
+    else if (b2)
+    {
+        3343
+    }
+    else
+    {
+        okok
+    }
 }
 ";
         }

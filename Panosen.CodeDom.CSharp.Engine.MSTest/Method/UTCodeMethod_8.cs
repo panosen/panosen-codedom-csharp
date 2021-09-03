@@ -22,11 +22,11 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	list.Select(x => new Student
-	{
-		DataStatus = 1,
-		LastTimeTime = DateTime.Now
-	});
+    list.Select(x => new Student
+    {
+        DataStatus = 1,
+        LastTimeTime = DateTime.Now
+    });
 }
 ";
         }

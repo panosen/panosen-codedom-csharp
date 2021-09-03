@@ -32,26 +32,26 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
             return @"namespace TheNamespace
 {
 
-	/// <summary>
-	/// Myclass 0
-	/// </summary>
-	class MyClass0
-	{
-	}
+    /// <summary>
+    /// Myclass 0
+    /// </summary>
+    class MyClass0
+    {
+    }
 
-	/// <summary>
-	/// Myclass 1
-	/// </summary>
-	class MyClass1
-	{
-	}
+    /// <summary>
+    /// Myclass 1
+    /// </summary>
+    class MyClass1
+    {
+    }
 
-	/// <summary>
-	/// Myclass 2
-	/// </summary>
-	class MyClass2
-	{
-	}
+    /// <summary>
+    /// Myclass 2
+    /// </summary>
+    class MyClass2
+    {
+    }
 }
 ";
         }

@@ -18,8 +18,8 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	name = age.ToString();
-	name = age.ToString();
+    name = age.ToString();
+    name = age.ToString();
 }
 ";
         }

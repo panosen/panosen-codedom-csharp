@@ -26,24 +26,24 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	try
-	{
-		var xx=0;
-		var yy = 90;
-	}
-	catch (ok)
-	{
-		//catch1
-	}
-	catch (catch2)
-	{
-		okok2
-		okok22
-	}
-	finally
-	{
-		finaly
-	}
+    try
+    {
+        var xx=0;
+        var yy = 90;
+    }
+    catch (ok)
+    {
+        //catch1
+    }
+    catch (catch2)
+    {
+        okok2
+        okok22
+    }
+    finally
+    {
+        finaly
+    }
 }
 ";
         }

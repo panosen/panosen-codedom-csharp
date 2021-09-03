@@ -20,7 +20,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	list.Where(x => x.DataStatus == 1);
+    list.Where(x => x.DataStatus == 1);
 }
 ";
         }

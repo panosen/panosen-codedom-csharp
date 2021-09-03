@@ -19,11 +19,11 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	this.MethodC()
-		.MethodD(v => new Student
-		{
-			Name = 2
-		});
+    this.MethodC()
+        .MethodD(v => new Student
+        {
+            Name = 2
+        });
 }
 ";
         }

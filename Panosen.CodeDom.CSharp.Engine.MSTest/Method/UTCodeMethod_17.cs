@@ -38,42 +38,42 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	switch (value)
-	{
-		case 0:
-			{
-				//test
-				console.log(0)
-			}
-			break;
-		case 1:
-			{
-				//test
-				console.log(1)
-			}
-			break;
-		case 2:
-			{
-				//test
-				console.log(2)
-			}
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		case 6:
-		case 7:
-		case 8:
-		default:
-			{
-				//test
-				console.log(11)
-			}
-			break;
-	}
+    switch (value)
+    {
+        case 0:
+            {
+                //test
+                console.log(0)
+            }
+            break;
+        case 1:
+            {
+                //test
+                console.log(1)
+            }
+            break;
+        case 2:
+            {
+                //test
+                console.log(2)
+            }
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+        case 7:
+        case 8:
+        default:
+            {
+                //test
+                console.log(11)
+            }
+            break;
+    }
 }
 ";
         }

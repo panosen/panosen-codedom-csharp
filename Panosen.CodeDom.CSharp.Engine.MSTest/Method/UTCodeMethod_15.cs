@@ -19,7 +19,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	MethodA().MethodB();
+    MethodA().MethodB();
 }
 ";
         }

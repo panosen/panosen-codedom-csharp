@@ -31,16 +31,16 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	response.Items = bookDBContext.Countrys.Where(v => v.Name == name).Select(v => new CasLocationVo
-	{
-		Value = ""country:"" + v.Value,
-		Label = v.Label
-	})
-		.Select(v => new CasLocationVo
-		{
-			Value = ""country:"" + v.Value,
-			Label = v.Label
-		}).ToListA().ToListB();
+    response.Items = bookDBContext.Countrys.Where(v => v.Name == name).Select(v => new CasLocationVo
+    {
+        Value = ""country:"" + v.Value,
+        Label = v.Label
+    })
+        .Select(v => new CasLocationVo
+        {
+            Value = ""country:"" + v.Value,
+            Label = v.Label
+        }).ToListA().ToListB();
 }
 ";
         }

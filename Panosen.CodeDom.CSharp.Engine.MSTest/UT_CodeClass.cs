@@ -17,71 +17,71 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 public class Student
 {
 
-	/// <summary>
-	/// 常量 0
-	/// </summary>
-	const string Constant0 = ""aa"";
+    /// <summary>
+    /// 常量 0
+    /// </summary>
+    const string Constant0 = ""aa"";
 
-	/// <summary>
-	/// 常量 1
-	/// </summary>
-	const string Constant1 = ""aa"";
+    /// <summary>
+    /// 常量 1
+    /// </summary>
+    const string Constant1 = ""aa"";
 
-	/// <summary>
-	/// 字段 0
-	/// </summary>
-	private string Field0;
+    /// <summary>
+    /// 字段 0
+    /// </summary>
+    private string Field0;
 
-	/// <summary>
-	/// 字段 1
-	/// </summary>
-	private string Field1;
+    /// <summary>
+    /// 字段 1
+    /// </summary>
+    private string Field1;
 
-	/// <summary>
-	/// 属性 0
-	/// </summary>
-	public int Property0 { get; set; }
+    /// <summary>
+    /// 属性 0
+    /// </summary>
+    public int Property0 { get; set; }
 
-	/// <summary>
-	/// 属性 1
-	/// </summary>
-	public int Property1 { get; set; }
+    /// <summary>
+    /// 属性 1
+    /// </summary>
+    public int Property1 { get; set; }
 
-	public int age
-	{
-		get { return 1; }
-		set
-		{
-			//okok
-			this.xxx = 2;
-		}
-	}
+    public int age
+    {
+        get { return 1; }
+        set
+        {
+            //okok
+            this.xxx = 2;
+        }
+    }
 
-	public TheConstructor()
-	{
-	}
+    public TheConstructor()
+    {
+    }
 
-	/// <summary>
-	/// 方法 0
-	/// </summary>
-	public int Method0(int p1, int p2, int p3)
-	{
-	}
+    /// <summary>
+    /// 方法 0
+    /// </summary>
+    public int Method0(int p1, int p2, int p3)
+    {
+    }
 
-	/// <summary>
-	/// 方法 1
-	/// </summary>
-	public int Method1(int p1, int p2, int p3)
-	{
-	}
+    /// <summary>
+    /// 方法 1
+    /// </summary>
+    public int Method1(int p1, int p2, int p3)
+    {
+    }
 
-	methodX(
-		int p1,
-		int p2,
-		int p3,
-		int p4)
-	{
-	}
+    methodX(
+        int p1,
+        int p2,
+        int p3,
+        int p4)
+    {
+    }
 }
 ";
         }

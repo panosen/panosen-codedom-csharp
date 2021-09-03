@@ -20,11 +20,11 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	using (var conn = new SqlConnection(null))
-	{
-		name = age.ToString();
-		name = age.ToString();
-	}
+    using (var conn = new SqlConnection(null))
+    {
+        name = age.ToString();
+        name = age.ToString();
+    }
 }
 ";
         }

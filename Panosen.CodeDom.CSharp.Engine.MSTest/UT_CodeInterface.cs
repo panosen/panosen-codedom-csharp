@@ -6,24 +6,28 @@ using System.Text;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeInterface: UTBase
+    public class UT_CodeInterface : UTBase
     {
         protected override Code PrepareCode()
         {
             CodeInterface codeInterface = new CodeInterface();
             codeInterface.Name = "IStudentRepository";
-            codeInterface.Summary = "学生";
+            codeInterface.Summary = "Student";
             codeInterface.AccessModifiers = AccessModifiers.Public;
+            codeInterface.IsPartial = true;
+
+            codeInterface.AddParent("IStudent");
+            codeInterface.AddParent("ITeacher");
 
             codeInterface.MethodList = new List<CodeMethod>();
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 var codeMethod = new CodeMethod();
                 codeInterface.MethodList.Add(codeMethod);
 
                 codeMethod.Name = $"Method{i}";
                 codeMethod.Type = "int";
-                codeMethod.Summary = $"方法 {i}";
+                codeMethod.Summary = $"Method {i}";
 
                 codeMethod.Parameters = new List<CodeParameter>();
                 for (int j = 0; j < 3; j++)
@@ -42,25 +46,20 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
         protected override string PrepareExpected()
         {
             return @"/// <summary>
-/// 学生
+/// Student
 /// </summary>
-public interface IStudentRepository
+public partial interface IStudentRepository: IStudent, ITeacher
 {
 
-	/// <summary>
-	/// 方法 0
-	/// </summary>
-	int Method0(int p1, int p2, int p3);
+    /// <summary>
+    /// Method 0
+    /// </summary>
+    int Method0(int p1, int p2, int p3);
 
-	/// <summary>
-	/// 方法 1
-	/// </summary>
-	int Method1(int p1, int p2, int p3);
-
-	/// <summary>
-	/// 方法 2
-	/// </summary>
-	int Method2(int p1, int p2, int p3);
+    /// <summary>
+    /// Method 1
+    /// </summary>
+    int Method1(int p1, int p2, int p3);
 }
 ";
         }

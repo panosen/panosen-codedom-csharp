@@ -17,7 +17,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 
             StringBuilder builder = new StringBuilder();
 
-            generator.GenerateCodeFile(option, builder, new GenerateOptions { TabString = "\t" });
+            generator.GenerateCodeFile(option, builder);
 
             var actual = builder.ToString();
 
@@ -31,19 +31,19 @@ using Sample;
 namespace TheNamespace
 {
 
-	/// <summary>
-	/// Myclass 0
-	/// </summary>
-	class MyClass0
-	{
-	}
+    /// <summary>
+    /// Myclass 0
+    /// </summary>
+    class MyClass0
+    {
+    }
 
-	/// <summary>
-	/// Myclass 1
-	/// </summary>
-	class MyClass1
-	{
-	}
+    /// <summary>
+    /// Myclass 1
+    /// </summary>
+    class MyClass1
+    {
+    }
 }
 ";
 

@@ -23,11 +23,11 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
         {
             return @"public TestMethod()
 {
-	services.AddAuth(Scheme).AddJwtBearer(OK,  =>
-	{
-		//ok
-		x = 1;
-	});
+    services.AddAuth(Scheme).AddJwtBearer(OK,  =>
+    {
+        //ok
+        x = 1;
+    });
 }
 ";
         }
