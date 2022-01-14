@@ -39,11 +39,6 @@ namespace Panosen.CodeDom.CSharp.Engine
                 codeWriter.Write(codeClass.AccessModifiers.Value()).Write(Marks.WHITESPACE);
             }
 
-            if (codeClass.IsPartial)
-            {
-                codeWriter.Write(Keywords.PARTIAL).Write(Marks.WHITESPACE);
-            }
-
             if (codeClass.IsStatic)
             {
                 codeWriter.Write(Keywords.STATIC).Write(Marks.WHITESPACE);
@@ -52,6 +47,11 @@ namespace Panosen.CodeDom.CSharp.Engine
             if (codeClass.IsAbstract)
             {
                 codeWriter.Write(Keywords.ABSTRACT).Write(Marks.WHITESPACE);
+            }
+
+            if (codeClass.IsPartial)
+            {
+                codeWriter.Write(Keywords.PARTIAL).Write(Marks.WHITESPACE);
             }
 
             codeWriter.Write(Keywords.CLASS).Write(Marks.WHITESPACE).Write(codeClass.Name ?? string.Empty);
