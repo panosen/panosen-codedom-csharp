@@ -314,6 +314,8 @@ namespace Panosen.CodeDom.CSharp
         public static CodeProperty AddProperty(this CodeClass codeClass, string type, string name,
             string value = null,
             string summary = null,
+            bool isVirtual = false,
+            bool isOverride = false,
             CodePropertyAccess codePropertyAccess = CodePropertyAccess.Default,
             AccessModifiers accessModifiers = AccessModifiers.Public)
         {
@@ -327,6 +329,8 @@ namespace Panosen.CodeDom.CSharp
             codeProperty.Type = type;
             codeProperty.CodePropertyAccess = codePropertyAccess;
             codeProperty.Summary = summary;
+            codeProperty.IsVirtual = isVirtual;
+            codeProperty.IsOverride = isOverride;
             codeProperty.Value = value;
             codeProperty.AccessModifiers = accessModifiers;
 

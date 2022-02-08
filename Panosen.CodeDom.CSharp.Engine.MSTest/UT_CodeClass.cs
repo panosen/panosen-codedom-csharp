@@ -45,7 +45,12 @@ public class Student
     /// <summary>
     /// 属性 1
     /// </summary>
-    public int Property1 { get; set; }
+    public virtual int Property1 { get; set; }
+
+    /// <summary>
+    /// 属性 2
+    /// </summary>
+    public override string Property2 { get; set; }
 
     public int age
     {
@@ -94,14 +99,15 @@ public class Student
             codeClass.AccessModifiers = AccessModifiers.Public;
 
             codeClass.PropertyList = new List<CodeProperty>();
-            for (int i = 0; i < 2; i++)
-            {
-                var codeProperty = new CodeProperty();
-                codeClass.PropertyList.Add(codeProperty);
 
-                codeProperty.Name = $"Property{i}";
-                codeProperty.Type = "int";
-                codeProperty.Summary = $"属性 {i}";
+            {
+                codeClass.AddProperty("int", "Property0", summary: "属性 0");
+            }
+            {
+                codeClass.AddProperty("int", "Property1", summary: "属性 1", isVirtual: true);
+            }
+            {
+                codeClass.AddProperty("string", "Property2", summary: "属性 2", isOverride: true);
             }
 
             codeClass.FieldList = new List<CodeField>();

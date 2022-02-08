@@ -37,9 +37,14 @@ namespace Panosen.CodeDom.CSharp
         public string Value { get; set; }
 
         /// <summary>
-        /// 是否是分布类
+        /// 是否是virtual
         /// </summary>
         public bool IsVirtual { get; set; }
+
+        /// <summary>
+        /// 是否是override
+        /// </summary>
+        public bool IsOverride { get; set; }
 
         /// <summary>
         /// get 访问器
@@ -159,6 +164,16 @@ namespace Panosen.CodeDom.CSharp
         public static TCodeProperty SetIsVirtual<TCodeProperty>(this TCodeProperty codeProperty, bool isVirtual) where TCodeProperty : CodeProperty
         {
             codeProperty.IsVirtual = isVirtual;
+
+            return codeProperty;
+        }
+
+        /// <summary>
+        /// 设置IsOverride
+        /// </summary>
+        public static TCodeProperty SetIsOverride<TCodeProperty>(this TCodeProperty codeProperty, bool isOverride) where TCodeProperty : CodeProperty
+        {
+            codeProperty.IsOverride = isOverride;
 
             return codeProperty;
         }

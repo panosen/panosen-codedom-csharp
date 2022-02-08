@@ -48,6 +48,11 @@ namespace Panosen.CodeDom.CSharp.Engine
                 codeWriter.Write(Keywords.VIRTUAL).Write(Marks.WHITESPACE);
             }
 
+            if (codeProperty.IsOverride)
+            {
+                codeWriter.Write(Keywords.OVERRIDE).Write(Marks.WHITESPACE);
+            }
+
             codeWriter.Write(codeProperty.Type ?? string.Empty).Write(Marks.WHITESPACE).Write(codeProperty.Name ?? string.Empty);
 
             //标准属性
