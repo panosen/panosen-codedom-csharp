@@ -34,7 +34,7 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             codeWriter.Write(options.IndentString);
 
-            if (codeProperty.AccessModifiers !=  AccessModifiers.None)
+            if (codeProperty.AccessModifiers != AccessModifiers.None)
             {
                 codeWriter.Write(codeProperty.AccessModifiers.Value()).Write(Marks.WHITESPACE);
             }
@@ -59,7 +59,7 @@ namespace Panosen.CodeDom.CSharp.Engine
             if ((codeProperty.GetStepBuilderCollection == null || codeProperty.GetStepBuilderCollection.StepBuilders == null || codeProperty.SetStepBuilderCollection.StepBuilders.Count == 0)
                 && (codeProperty.SetStepBuilderCollection == null || codeProperty.SetStepBuilderCollection.StepBuilders == null || codeProperty.SetStepBuilderCollection.StepBuilders.Count == 0))
             {
-                GenerateStandardProperty(codeWriter, codeProperty);
+                GenerateStandardProperty(codeWriter, codeProperty, options);
                 return;
             }
 
@@ -67,7 +67,7 @@ namespace Panosen.CodeDom.CSharp.Engine
             GenerateCustomizedProperty(codeWriter, codeProperty, options);
         }
 
-        private static void GenerateStandardProperty(CodeWriter codeWriter, CodeProperty codeProperty)
+        private void GenerateStandardProperty(CodeWriter codeWriter, CodeProperty codeProperty, GenerateOptions options)
         {
             codeWriter.Write(Marks.WHITESPACE);
 
@@ -90,12 +90,18 @@ namespace Panosen.CodeDom.CSharp.Engine
                     break;
             }
 
-            if (!string.IsNullOrEmpty(codeProperty.Value))
+            codeWriter.Write(Marks.RIGHT_BRACE);
+
+            if (codeProperty.Value != null)
             {
-                codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE).Write(codeProperty.Value);
+                codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE);
+
+                GenerateDataItem(codeProperty.Value, codeWriter, options);
+
+                codeWriter.Write(Marks.SEMICOLON);
             }
 
-            codeWriter.WriteLine(Marks.RIGHT_BRACE);
+            codeWriter.WriteLine();
         }
 
         private void GenerateCustomizedProperty(CodeWriter codeWriter, CodeProperty codeProperty, GenerateOptions options)

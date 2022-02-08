@@ -40,6 +40,6 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 值
         /// </summary>
-        public string Value { get; set; }
+        public DataItem Value { get; set; }
     }
 }

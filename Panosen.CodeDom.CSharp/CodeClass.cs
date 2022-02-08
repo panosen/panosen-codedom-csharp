@@ -270,7 +270,7 @@ namespace Panosen.CodeDom.CSharp
             bool isVolatile = false,
             bool isReadOnly = false,
             string summary = null,
-            string value = null,
+            DataItem value = null,
             AccessModifiers accessModifiers = AccessModifiers.Private)
         {
             if (codeClass.FieldList == null)
@@ -312,7 +312,7 @@ namespace Panosen.CodeDom.CSharp
         /// 添加属性
         /// </summary>
         public static CodeProperty AddProperty(this CodeClass codeClass, string type, string name,
-            string value = null,
+            DataItem value = null,
             string summary = null,
             bool isVirtual = false,
             bool isOverride = false,

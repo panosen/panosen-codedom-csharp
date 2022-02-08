@@ -38,6 +38,16 @@ public class Student
     private string Field1;
 
     /// <summary>
+    /// 字段 2
+    /// </summary>
+    private int Field2 = 222;
+
+    /// <summary>
+    /// 字段 3
+    /// </summary>
+    private string Field3 = ""333"";
+
+    /// <summary>
     /// 属性 0
     /// </summary>
     public int Property0 { get; set; }
@@ -51,6 +61,21 @@ public class Student
     /// 属性 2
     /// </summary>
     public override string Property2 { get; set; }
+
+    /// <summary>
+    /// 属性 3
+    /// </summary>
+    public int Property3 { get; set; } = 333;
+
+    /// <summary>
+    /// 属性 4
+    /// </summary>
+    public int Property4 { get; set; } = 444;
+
+    /// <summary>
+    /// 属性 5
+    /// </summary>
+    public string Property5 { get; set; } = ""555"";
 
     public int age
     {
@@ -109,16 +134,27 @@ public class Student
             {
                 codeClass.AddProperty("string", "Property2", summary: "属性 2", isOverride: true);
             }
-
-            codeClass.FieldList = new List<CodeField>();
-            for (int i = 0; i < 2; i++)
             {
-                var codeField = new CodeField();
-                codeClass.FieldList.Add(codeField);
+                codeClass.AddProperty("int", "Property3", summary: "属性 3", value: (DataValue)333);
+            }
+            {
+                codeClass.AddProperty("int", "Property4", summary: "属性 4", value: (DataValue)"444");
+            }
+            {
+                codeClass.AddProperty("string", "Property5", summary: "属性 5", value: DataValue.DoubleQuotationString("555"));
+            }
 
-                codeField.Name = $"Field{i}";
-                codeField.Type = "string";
-                codeField.Summary = $"字段 {i}";
+            {
+                codeClass.AddField("string", "Field0", summary: "字段 0");
+            }
+            {
+                codeClass.AddField("string", "Field1", summary: "字段 1");
+            }
+            {
+                codeClass.AddField("int", "Field2", summary: "字段 2", value: (DataValue)222);
+            }
+            {
+                codeClass.AddField("string", "Field3", summary: "字段 3", value: DataValue.DoubleQuotationString("333"));
             }
 
             codeClass.ConstantList = new List<CodeConstant>();

@@ -52,9 +52,11 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             codeWriter.Write(codeField.Name ?? string.Empty);
 
-            if (!string.IsNullOrEmpty(codeField.Value))
+            if (codeField.Value != null)
             {
-                codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE).Write(codeField.Value);
+                codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE);
+
+                GenerateDataItem(codeField.Value, codeWriter, options);
             }
 
             codeWriter.WriteLine(Marks.SEMICOLON);
