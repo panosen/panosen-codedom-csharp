@@ -357,17 +357,17 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 添加泛型参数
         /// </summary>
-        public static CodeGenericParamster AddGenericParameter<TCodeClass>(this TCodeClass codeMethod, string name, string summary = null) where TCodeClass : CodeClass
+        public static CodeGenericParamster AddGenericParameter<TCodeClass>(this TCodeClass codeClass, string name, string summary = null) where TCodeClass : CodeClass
         {
-            if (codeMethod.GenericParamsterList == null)
+            if (codeClass.GenericParamsterList == null)
             {
-                codeMethod.GenericParamsterList = new List<CodeGenericParamster>();
+                codeClass.GenericParamsterList = new List<CodeGenericParamster>();
             }
 
             CodeGenericParamster codeGenericParamster = new CodeGenericParamster();
             codeGenericParamster.Name = name;
             codeGenericParamster.Summary = summary;
-            codeMethod.GenericParamsterList.Add(codeGenericParamster);
+            codeClass.GenericParamsterList.Add(codeGenericParamster);
 
             return codeGenericParamster;
         }

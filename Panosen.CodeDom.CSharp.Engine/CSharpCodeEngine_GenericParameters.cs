@@ -54,38 +54,60 @@ namespace Panosen.CodeDom.CSharp.Engine
             {
                 return;
             }
+            var items = genericParamsters.Where(v => v.Constraints != null && v.Constraints.Count > 0).ToList();
+            if (items.Count == 0)
+            {
+                return;
+            }
             if (codeWriter == null)
             {
                 return;
             }
             options = options ?? new GenerateOptions();
 
-            foreach (var genericParameter in genericParamsters)
+            codeWriter.WriteLine();
+
+            options.PushIndent();
+
+            var enumerator = items.GetEnumerator();
+            var moveNext = enumerator.MoveNext();
+            while (moveNext)
             {
-                if (genericParameter.Constraints == null || genericParameter.Constraints.Count == 0)
+                GenerateGenericParameterConstraint(codeWriter, options, enumerator.Current);
+
+                moveNext = enumerator.MoveNext();
+                if (moveNext)
                 {
-                    continue;
-                }
-                codeWriter.Write(Marks.WHITESPACE).Write(Keywords.WHERE).Write(Marks.WHITESPACE);
-
-                codeWriter.Write(genericParameter.Name);
-
-                codeWriter.Write(Marks.WHITESPACE).Write(Marks.COLON).Write(Marks.WHITESPACE);
-
-                var enumerator = genericParameter.Constraints.GetEnumerator();
-                var moveNext = enumerator.MoveNext();
-                while (moveNext)
-                {
-                    var current = enumerator.Current;
-                    codeWriter.Write(current);
-
-                    moveNext = enumerator.MoveNext();
-                    if (moveNext)
-                    {
-                        codeWriter.Write(Marks.COMMA).Write(Marks.WHITESPACE);
-                    }
+                    codeWriter.WriteLine();
                 }
             }
+
+            options.PopIndent();
+        }
+
+        private static void GenerateGenericParameterConstraint(CodeWriter codeWriter, GenerateOptions options, CodeGenericParamster genericParameter)
+        {
+            codeWriter.Write(options.IndentString).Write(Keywords.WHERE).Write(Marks.WHITESPACE);
+
+            codeWriter.Write(genericParameter.Name);
+
+            codeWriter.Write(Marks.WHITESPACE).Write(Marks.COLON).Write(Marks.WHITESPACE);
+
+            var enumerator = genericParameter.Constraints.GetEnumerator();
+            var moveNext = enumerator.MoveNext();
+            while (moveNext)
+            {
+                var current = enumerator.Current;
+                codeWriter.Write(current);
+
+                moveNext = enumerator.MoveNext();
+                if (moveNext)
+                {
+                    codeWriter.Write(Marks.COMMA).Write(Marks.WHITESPACE);
+                }
+            }
+
+
         }
     }
 }

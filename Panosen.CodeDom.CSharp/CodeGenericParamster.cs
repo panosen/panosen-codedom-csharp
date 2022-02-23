@@ -25,14 +25,19 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 添加约束
         /// </summary>
-        public static TCodeConstraint AddConstraint<TCodeConstraint>(this TCodeConstraint codeConstraint, string constraint) where TCodeConstraint : CodeGenericParamster
+        public static TCodeConstraint AddConstraint<TCodeConstraint>(this TCodeConstraint codeConstraint, params string[] constraints) where TCodeConstraint : CodeGenericParamster
         {
+            if (constraints == null || constraints.Length == 0)
+            {
+                return codeConstraint;
+            }
+
             if (codeConstraint.Constraints == null)
             {
                 codeConstraint.Constraints = new List<string>();
             }
 
-            codeConstraint.Constraints.Add(constraint);
+            codeConstraint.Constraints.AddRange(constraints);
 
             return codeConstraint;
         }
