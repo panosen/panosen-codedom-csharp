@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// 属性
     /// </summary>
-    public class CodeProperty : CodeMember
+    public class CodeProperty : CodeObject
     {
         /// <summary>
         /// 访问修饰符

@@ -74,6 +74,7 @@ namespace Panosen.CodeDom.CSharp
         /// </summary>
         public List<CodeGenericParamster> GenericParamsterList { get; set; }
     }
+
     /// <summary>
     /// CodeClass 扩展方法
     /// </summary>
@@ -157,9 +158,6 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 添加一个方法
         /// </summary>
-        /// <param name="codeClass"></param>
-        /// <param name="codeMethod"></param>
-        /// <returns></returns>
         public static TCodeClass AddMethod<TCodeClass>(this TCodeClass codeClass, CodeMethod codeMethod) where TCodeClass : CodeClass
         {
             if (codeClass.MethodList == null)
@@ -194,9 +192,6 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 添加一批方法
         /// </summary>
-        /// <param name="codeClass"></param>
-        /// <param name="codeMethods"></param>
-        /// <returns></returns>
         public static TCodeClass AddMethods<TCodeClass>(this TCodeClass codeClass, List<CodeMethod> codeMethods) where TCodeClass : CodeClass
         {
             if (codeMethods == null || codeMethods.Count == 0)

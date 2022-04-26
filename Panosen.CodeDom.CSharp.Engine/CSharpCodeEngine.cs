@@ -14,7 +14,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         public void Generate(Code code, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (code == null) { return; }
-            if(codeWriter == null) { return; }
+            if (codeWriter == null) { return; }
             options = options ?? new GenerateOptions();
 
             if (code is CodeNamespace)
@@ -44,6 +44,12 @@ namespace Panosen.CodeDom.CSharp.Engine
             if (code is CodeMethod)
             {
                 GenerateMethod(code as CodeMethod, codeWriter, options);
+                return;
+            }
+
+            if (code is CodeEnum)
+            {
+                GenerateEnum(code as CodeEnum, codeWriter, options);
                 return;
             }
         }

@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.CSharp
 {
     /// <summary>
-    /// CodeMember
+    /// 字段
     /// </summary>
-    public class CodeMember : CodeObject
+    public class CodeEnumValue : CodeObject
     {
-
+        /// <summary>
+        /// 值
+        /// </summary>
+        public DataItem Value { get; set; }
     }
 }

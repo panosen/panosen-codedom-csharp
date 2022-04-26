@@ -46,6 +46,15 @@ namespace Panosen.CodeDom.CSharp.Engine
                 }
             }
 
+            if (codeNamespace.EnumList != null && codeNamespace.EnumList.Count > 0)
+            {
+                foreach (var codeEnum in codeNamespace.EnumList)
+                {
+                    codeWriter.WriteLine();
+                    GenerateEnum(codeEnum, codeWriter, options);
+                }
+            }
+
             options.PopIndent();
 
             codeWriter.WriteLine(Marks.RIGHT_BRACE);

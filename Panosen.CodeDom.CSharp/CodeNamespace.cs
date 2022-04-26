@@ -18,7 +18,13 @@ namespace Panosen.CodeDom.CSharp
         /// 接口
         /// </summary>
         public List<CodeInterface> InterfaceList { get; set; }
+
+        /// <summary>
+        /// 枚举
+        /// </summary>
+        public List<CodeEnum> EnumList { get; set; }
     }
+
     /// <summary>
     /// CodeNamespace 扩展
     /// </summary>
@@ -93,6 +99,40 @@ namespace Panosen.CodeDom.CSharp
             codeNamespace.InterfaceList.Add(codeInterface);
 
             return codeInterface;
+        }
+
+        /// <summary>
+        /// 添加一个枚举
+        /// </summary>
+        public static CodeNamespace AddEnum(this CodeNamespace codeNamespace, CodeEnum codeEnum)
+        {
+            if (codeNamespace.EnumList == null)
+            {
+                codeNamespace.EnumList = new List<CodeEnum>();
+            }
+
+            codeNamespace.EnumList.Add(codeEnum);
+            return codeNamespace;
+        }
+
+        /// <summary>
+        /// 添加一个枚举
+        /// </summary>
+        public static CodeEnum AddEnum(this CodeNamespace codeNamespace, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None)
+        {
+            if (codeNamespace.EnumList == null)
+            {
+                codeNamespace.EnumList = new List<CodeEnum>();
+            }
+
+            CodeEnum codeEnum = new CodeEnum();
+            codeEnum.Name = name;
+            codeEnum.Summary = summary;
+            codeEnum.AccessModifiers = accessModifiers;
+
+            codeNamespace.EnumList.Add(codeEnum);
+
+            return codeEnum;
         }
     }
 }

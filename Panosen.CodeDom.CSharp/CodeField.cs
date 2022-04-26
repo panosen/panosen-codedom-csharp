@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// 字段
     /// </summary>
-    public class CodeField : CodeMember
+    public class CodeField : CodeObject
     {
 
         /// <summary>
