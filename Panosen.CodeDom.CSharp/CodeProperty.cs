@@ -103,6 +103,36 @@ namespace Panosen.CodeDom.CSharp
         }
 
         /// <summary>
+        /// AddValue
+        /// </summary>
+        public static TCodeProperty AddValue<TCodeProperty>(this TCodeProperty codeProperty, DataItem dataItem) where TCodeProperty : CodeProperty
+        {
+            codeProperty.Value = dataItem;
+
+            return codeProperty;
+        }
+
+        /// <summary>
+        /// AddStringValue
+        /// </summary>
+        public static TCodeProperty AddStringValue<TCodeProperty>(this TCodeProperty codeProperty, string value) where TCodeProperty : CodeProperty
+        {
+            codeProperty.Value = DataValue.DoubleQuotationString(value);
+
+            return codeProperty;
+        }
+
+        /// <summary>
+        /// AddPlainValue
+        /// </summary>
+        public static CodeProperty AddPlainValue<TCodeProperty>(this TCodeProperty codeProperty, string value) where TCodeProperty : CodeProperty
+        {
+            codeProperty.Value = (DataValue)value;
+
+            return codeProperty;
+        }
+
+        /// <summary>
         /// AddGetStepBuilderCollection
         /// </summary>
         /// <typeparam name="TCodeProperty"></typeparam>
