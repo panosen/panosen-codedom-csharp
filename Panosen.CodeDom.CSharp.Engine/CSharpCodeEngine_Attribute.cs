@@ -51,7 +51,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                     GenerateDataValue(enumerator.Current.Value, codeWriter, options);
 
                     moveNext = enumerator.MoveNext();
-                    if (moveNext || hasMapParam)
+                    if (moveNext)
                     {
                         codeWriter.Write(Marks.COMMA).Write(Marks.WHITESPACE);
                     }
