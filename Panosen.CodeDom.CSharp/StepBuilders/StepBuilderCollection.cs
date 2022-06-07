@@ -81,7 +81,9 @@ namespace Panosen.CodeDom.CSharp
                 stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
             }
 
-            stepBuilderCollection.StepBuilders.Add(new StatementStepBuilder(statement));
+            StatementStepBuilder statementStepBuilder = new StatementStepBuilder();
+            statementStepBuilder.Statement = statement;
+            stepBuilderCollection.StepBuilders.Add(statementStepBuilder);
 
             return stepBuilderCollection;
         }

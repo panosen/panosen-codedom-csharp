@@ -26,29 +26,4 @@ namespace Panosen.CodeDom.CSharp
         /// </summary>
         public string End { get; set; }
     }
-
-    /// <summary>
-    /// ForStepBuilderExtension
-    /// </summary>
-    public static class ForStepBuilderExtension
-    {
-        /// <summary>
-        /// For
-        /// </summary>
-        /// <typeparam name="TForStepBuilder"></typeparam>
-        /// <param name="forStepBuilder"></param>
-        /// <param name="start"></param>
-        /// <param name="middle"></param>
-        /// <param name="end"></param>
-        /// <returns></returns>
-        public static TForStepBuilder For<TForStepBuilder>(this TForStepBuilder forStepBuilder, string start, string middle, string end)
-            where TForStepBuilder : ForStepBuilder
-        {
-            forStepBuilder.Start = start;
-            forStepBuilder.Middle = middle;
-            forStepBuilder.End = end;
-
-            return forStepBuilder;
-        }
-    }
 }
