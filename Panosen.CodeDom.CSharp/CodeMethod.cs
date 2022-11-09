@@ -194,7 +194,7 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// Add Parameter
         /// </summary>
-        public static CodeParameter AddParameter(this CodeMethod codeMethod, string type, string name, string summary = null, bool withThis = false)
+        public static CodeParameter AddParameter(this CodeMethod codeMethod, string type, string name, string summary = null, bool withThis = false, bool withOut = false, bool withRef = false)
         {
             if (codeMethod.Parameters == null)
             {
@@ -206,6 +206,8 @@ namespace Panosen.CodeDom.CSharp
             parameter.Type = type;
             parameter.Summary = summary;
             parameter.WithThis = withThis;
+            parameter.WithOut = withOut;
+            parameter.WithRef = withRef;
 
             codeMethod.Parameters.Add(parameter);
 

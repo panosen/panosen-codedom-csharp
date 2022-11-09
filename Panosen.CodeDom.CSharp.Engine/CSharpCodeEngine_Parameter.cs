@@ -12,9 +12,6 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// GenerateParameter
         /// </summary>
-        /// <param name="codeParameter"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
         public void GenerateParameter(CodeParameter codeParameter, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeParameter == null) { return; }
@@ -33,6 +30,16 @@ namespace Panosen.CodeDom.CSharp.Engine
             if (codeParameter.WithThis)
             {
                 codeWriter.Write(Keywords.THIS).Write(Marks.WHITESPACE);
+            }
+
+            if (codeParameter.WithOut)
+            {
+                codeWriter.Write(Keywords.OUT).Write(Marks.WHITESPACE);
+            }
+
+            if (codeParameter.WithRef)
+            {
+                codeWriter.Write(Keywords.REF).Write(Marks.WHITESPACE);
             }
 
             codeWriter.Write(codeParameter.Type).Write(Marks.WHITESPACE).Write(codeParameter.Name);
