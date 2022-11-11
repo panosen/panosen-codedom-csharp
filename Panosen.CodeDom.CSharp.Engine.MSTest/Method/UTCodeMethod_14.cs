@@ -17,7 +17,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
             {
                 var exp = chain.AddCallMethodExpression("AddJwtBearer");
                 exp.AddParameter("OK");
-                var builders = exp.AddParameterOfLamdaStepBuilderCollection().SetParameter("options");
+                var builders = exp.AddParameterOfLamdaStepCollection().SetParameter("options");
                 builders.StepStatement("//ok");
                 builders.StepStatement("x = 1;");
             }

@@ -10,10 +10,10 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
     {
         protected override void PrepareCodeMethod(CodeMethod codeMethod)
         {
-            var ifStepBuilder = codeMethod.StepIf("1").StepStatement("ok");
-            ifStepBuilder.WithElseIf("b").StepStatement("333");
-            ifStepBuilder.WithElseIf("b2").StepStatement("3343");
-            ifStepBuilder.WithElse().StepStatement("okok");
+            var ifStep = codeMethod.StepIf("1").StepStatement("ok");
+            ifStep.WithElseIf("b").StepStatement("333");
+            ifStep.WithElseIf("b2").StepStatement("3343");
+            ifStep.WithElse().StepStatement("okok");
         }
 
         protected override string PrepareExpected()

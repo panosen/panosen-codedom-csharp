@@ -10,15 +10,15 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
     {
         protected override void PrepareCodeMethod(CodeMethod codeMethod)
         {
-            var tryStepBuilder = codeMethod.StepTry();
-            tryStepBuilder.StepStatement("var xx=0;");
-            tryStepBuilder.StepStatement("var yy = 90;");
-            var catch1 = tryStepBuilder.WithCatch("ok");
+            var tryStep = codeMethod.StepTry();
+            tryStep.StepStatement("var xx=0;");
+            tryStep.StepStatement("var yy = 90;");
+            var catch1 = tryStep.WithCatch("ok");
             catch1.StepStatement("//catch1");
-            var catch2 = tryStepBuilder.WithCatch("catch2");
+            var catch2 = tryStep.WithCatch("catch2");
             catch2.StepStatement("okok2");
             catch2.StepStatement("okok22");
-            var finally2 = tryStepBuilder.WithFinally();
+            var finally2 = tryStep.WithFinally();
             finally2.StepStatement("finaly");
         }
 

@@ -61,7 +61,7 @@ public class Student
                     codeMethod.AddParameter("int", $"p{j + 1}");
                 }
 
-                codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+                codeMethod.StepCollection = new StepCollection();
             }
             {
                 var codeMethod = codeClass.AddMethod("Method1", $"方法 1");
@@ -77,7 +77,7 @@ public class Student
                 codeMethod.AddGenericParameter("TCalc").AddConstraint("Calc").AddConstraint("ICalc");
                 codeMethod.AddGenericParameter("TService");
 
-                codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+                codeMethod.StepCollection = new StepCollection();
             }
 
             var methodX = codeClass.AddMethod("methodX");
@@ -85,7 +85,7 @@ public class Student
             {
                 methodX.AddParameter("int", $"p{i + 1}");
             }
-            methodX.StepBuilders = new List<StepBuilderOrCollection>();
+            methodX.StepCollection = new StepCollection();
 
             return codeClass;
         }

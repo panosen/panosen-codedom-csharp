@@ -28,9 +28,9 @@ namespace Panosen.CodeDom.CSharp.Engine
                 GenerateLamdaExpression(dataItem as CodeLamdaExpression, codeWriter, options);
             }
 
-            if (dataItem is CodeLamdaStepBuilderCollection)
+            if (dataItem is CodeLamdaStepCollection)
             {
-                GenerateLamdaStepBuilderCollection(dataItem as CodeLamdaStepBuilderCollection, codeWriter, options);
+                GenerateLamdaStepCollection(dataItem as CodeLamdaStepCollection, codeWriter, options);
             }
         }
     }

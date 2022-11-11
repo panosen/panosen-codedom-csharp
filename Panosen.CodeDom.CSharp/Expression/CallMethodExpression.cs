@@ -133,10 +133,10 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 添加 CodeLamdaExpression 类型的参数
         /// </summary>
-        public static CodeLamdaStepBuilderCollection AddParameterOfLamdaStepBuilderCollection<TCallMethodExpression>(this TCallMethodExpression callMethodExpression)
+        public static CodeLamdaStepCollection AddParameterOfLamdaStepCollection<TCallMethodExpression>(this TCallMethodExpression callMethodExpression)
             where TCallMethodExpression : CallMethodExpression
         {
-            return AddParameter<CodeLamdaStepBuilderCollection>(callMethodExpression);
+            return AddParameter<CodeLamdaStepCollection>(callMethodExpression);
         }
     }
 }

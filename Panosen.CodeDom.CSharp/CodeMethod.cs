@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// 方法
     /// </summary>
-    public class CodeMethod : CodeObject, IStepBuilderCollection
+    public class CodeMethod : CodeObject, IStepCollectionHost
     {
         /// <summary>
         /// 类型
@@ -66,12 +66,12 @@ namespace Panosen.CodeDom.CSharp
         /// </summary>
         public List<CodeGenericParamster> GenericParamsterList { get; set; }
 
-        #region IStepBuilderCollection Members
+        #region IStepCollectionHost Members
 
         /// <summary>
-        /// IStepBuilderCollection.StepBuilders
+        /// 步骤
         /// </summary>
-        public List<StepBuilderOrCollection> StepBuilders { get; set; }
+        public StepCollection StepCollection { get; set; }
 
         #endregion
     }

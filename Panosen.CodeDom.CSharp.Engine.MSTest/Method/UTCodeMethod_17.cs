@@ -10,10 +10,10 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
     {
         protected override void PrepareCodeMethod(CodeMethod codeMethod)
         {
-            var switchStepBuilder = codeMethod.StepSwitch("value");
+            var switchStep = codeMethod.StepSwitch("value");
             for (int i = 0; i < 3; i++)
             {
-                var tempCase = switchStepBuilder.WithCase(i);
+                var tempCase = switchStep.WithCase(i);
                 {
                     tempCase.StepStatement("//test");
                     tempCase.StepStatement($"console.log({i})");
@@ -21,14 +21,14 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
             }
             for (int i = 3; i < 6; i++)
             {
-                var tempCase = switchStepBuilder.WithCase(i);
+                var tempCase = switchStep.WithCase(i);
             }
             for (int i = 6; i < 9; i++)
             {
-                var tempCase = switchStepBuilder.WithCase(i).SetLinkToNext(true);
+                var tempCase = switchStep.WithCase(i).SetLinkToNext(true);
             }
             {
-                var defaultCase = switchStepBuilder.WithDefault();
+                var defaultCase = switchStep.WithDefault();
                 defaultCase.StepStatement("//test");
                 defaultCase.StepStatement($"console.log(11)");
             }

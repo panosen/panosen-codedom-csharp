@@ -80,7 +80,7 @@ namespace Panosen.CodeDom.CSharp.Engine
             //泛型参数约束
             GenerateGenericParametersConstraint(codeMethod.GenericParamsterList, codeWriter, options);
 
-            if (codeMethod.StepBuilders == null)
+            if (codeMethod.StepCollection == null)
             {
                 codeWriter.WriteLine(Marks.SEMICOLON);
                 return;
@@ -96,9 +96,9 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             options.PushIndent();
 
-            foreach (var stepBuilder in codeMethod.StepBuilders)
+            foreach (var stepBuilder in codeMethod.StepCollection)
             {
-                GenerateStepBuilderOrCollection(stepBuilder, codeWriter, options);
+                GenerateStepOrCollection(stepBuilder, codeWriter, options);
             }
 
             options.PopIndent();

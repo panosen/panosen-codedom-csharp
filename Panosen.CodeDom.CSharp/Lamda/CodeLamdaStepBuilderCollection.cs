@@ -9,33 +9,33 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// ${Parameter} => ${Expression}
     /// </summary>
-    public class CodeLamdaStepBuilderCollection : DataItem, IStepBuilderCollection
+    public class CodeLamdaStepCollection : DataItem, IStepCollectionHost
     {
         /// <summary>
         /// 参数
         /// </summary>
         public string Parameter { get; set; }
 
-        #region IStepBuilderCollection Members
+        #region IStepCollectionHost Members
 
         /// <summary>
         /// 步骤
         /// </summary>
-        public List<StepBuilderOrCollection> StepBuilders { get; set; }
+        public StepCollection StepCollection { get; set; }
 
         #endregion
     }
 
     /// <summary>
-    /// CodeLamdaStepBuilderCollectionExtension
+    /// CodeLamdaStepCollectionExtension
     /// </summary>
-    public static class CodeLamdaStepBuilderCollectionExtension
+    public static class CodeLamdaStepCollectionExtension
     {
         /// <summary>
         /// SetParameter
         /// </summary>
-        public static TCodeLamdaStepBuilderCollection SetParameter<TCodeLamdaStepBuilderCollection>(this TCodeLamdaStepBuilderCollection lamda, string parameter)
-            where TCodeLamdaStepBuilderCollection : CodeLamdaStepBuilderCollection
+        public static TCodeLamdaStepCollection SetParameter<TCodeLamdaStepCollection>(this TCodeLamdaStepCollection lamda, string parameter)
+            where TCodeLamdaStepCollection : CodeLamdaStepCollection
         {
             lamda.Parameter = parameter;
 

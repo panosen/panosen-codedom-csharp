@@ -49,12 +49,12 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// get 访问器
         /// </summary>
-        public StepBuilderCollection GetStepBuilderCollection { get; set; }
+        public StepCollection GetStepCollection { get; set; }
 
         /// <summary>
         /// set 访问器包含的步骤
         /// </summary>
-        public StepBuilderCollection SetStepBuilderCollection { get; set; }
+        public StepCollection SetStepCollection { get; set; }
     }
 
     /// <summary>
@@ -133,57 +133,57 @@ namespace Panosen.CodeDom.CSharp
         }
 
         /// <summary>
-        /// AddGetStepBuilderCollection
+        /// AddGetStepCollection
         /// </summary>
         /// <typeparam name="TCodeProperty"></typeparam>
         /// <param name="codeProperty"></param>
         /// <param name="stepBuilderCollection"></param>
         /// <returns></returns>
-        public static TCodeProperty AddGetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepBuilderCollection stepBuilderCollection) where TCodeProperty : CodeProperty
+        public static TCodeProperty AddGetStepCollection<TCodeProperty>(this TCodeProperty codeProperty, StepCollection stepBuilderCollection) where TCodeProperty : CodeProperty
         {
-            codeProperty.GetStepBuilderCollection = stepBuilderCollection;
+            codeProperty.GetStepCollection = stepBuilderCollection;
 
             return codeProperty;
         }
 
         /// <summary>
-        /// AddGetStepBuilderCollection
+        /// AddGetStepCollection
         /// </summary>
         /// <param name="codeProperty"></param>
         /// <returns></returns>
-        public static StepBuilderCollection AddGetStepBuilderCollection(this CodeProperty codeProperty)
+        public static StepCollection AddGetStepCollection(this CodeProperty codeProperty)
         {
-            StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();
+            StepCollection stepBuilderCollection = new StepCollection();
 
-            codeProperty.GetStepBuilderCollection = stepBuilderCollection;
+            codeProperty.GetStepCollection = stepBuilderCollection;
 
             return stepBuilderCollection;
         }
 
         /// <summary>
-        /// AddSetStepBuilderCollection
+        /// AddSetStepCollection
         /// </summary>
         /// <typeparam name="TCodeProperty"></typeparam>
         /// <param name="codeProperty"></param>
         /// <param name="stepBuilderCollection"></param>
         /// <returns></returns>
-        public static TCodeProperty AddSetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepBuilderCollection stepBuilderCollection) where TCodeProperty : CodeProperty
+        public static TCodeProperty AddSetStepCollection<TCodeProperty>(this TCodeProperty codeProperty, StepCollection stepBuilderCollection) where TCodeProperty : CodeProperty
         {
-            codeProperty.SetStepBuilderCollection = stepBuilderCollection;
+            codeProperty.SetStepCollection = stepBuilderCollection;
 
             return codeProperty;
         }
 
         /// <summary>
-        /// AddSetStepBuilderCollection
+        /// AddSetStepCollection
         /// </summary>
         /// <param name="codeProperty"></param>
         /// <returns></returns>
-        public static StepBuilderCollection AddSetStepBuilderCollection(this CodeProperty codeProperty)
+        public static StepCollection AddSetStepCollection(this CodeProperty codeProperty)
         {
-            StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();
+            StepCollection stepBuilderCollection = new StepCollection();
 
-            codeProperty.SetStepBuilderCollection = stepBuilderCollection;
+            codeProperty.SetStepCollection = stepBuilderCollection;
 
             return stepBuilderCollection;
         }

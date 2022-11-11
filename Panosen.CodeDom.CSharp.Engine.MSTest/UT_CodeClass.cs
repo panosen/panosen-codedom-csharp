@@ -180,7 +180,7 @@ public class Student
                 codeMethod.Summary = $"方法 {i}";
                 codeMethod.AccessModifiers = AccessModifiers.Public;
 
-                codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+                codeMethod.StepCollection = new StepCollection();
 
                 codeMethod.Parameters = new List<CodeParameter>();
                 for (int j = 0; j < 3; j++)
@@ -198,18 +198,18 @@ public class Student
             {
                 methodX.AddParameter("int", $"p{i + 1}");
             }
-            methodX.StepBuilders = new List<StepBuilderOrCollection>();
+            methodX.StepCollection = new StepCollection();
 
             codeClass.AddConstructor(new CodeMethod
             {
                 Name = "TheConstructor",
                 AccessModifiers = AccessModifiers.Public,
-                StepBuilders = new List<StepBuilderOrCollection>()
+                StepCollection = new StepCollection()
             });
 
             var property1 = codeClass.AddProperty("int", "age");
-            property1.AddGetStepBuilderCollection().StepStatement("return 1;");
-            property1.AddSetStepBuilderCollection().StepStatement("//okok").StepStatement("this.xxx = 2;");
+            property1.AddGetStepCollection().StepStatement("return 1;");
+            property1.AddSetStepCollection().StepStatement("//okok").StepStatement("this.xxx = 2;");
 
             return codeClass;
         }

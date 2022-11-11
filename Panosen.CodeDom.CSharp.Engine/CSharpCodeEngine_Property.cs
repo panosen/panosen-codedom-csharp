@@ -56,8 +56,8 @@ namespace Panosen.CodeDom.CSharp.Engine
             codeWriter.Write(codeProperty.Type ?? string.Empty).Write(Marks.WHITESPACE).Write(codeProperty.Name ?? string.Empty);
 
             //标准属性
-            if ((codeProperty.GetStepBuilderCollection == null || codeProperty.GetStepBuilderCollection.StepBuilders == null || codeProperty.SetStepBuilderCollection.StepBuilders.Count == 0)
-                && (codeProperty.SetStepBuilderCollection == null || codeProperty.SetStepBuilderCollection.StepBuilders == null || codeProperty.SetStepBuilderCollection.StepBuilders.Count == 0))
+            if ((codeProperty.GetStepCollection == null || codeProperty.GetStepCollection.Steps == null || codeProperty.SetStepCollection.Steps.Count == 0)
+                && (codeProperty.SetStepCollection == null || codeProperty.SetStepCollection.Steps == null || codeProperty.SetStepCollection.Steps.Count == 0))
             {
                 GenerateStandardProperty(codeWriter, codeProperty, options);
                 return;
@@ -111,29 +111,29 @@ namespace Panosen.CodeDom.CSharp.Engine
             codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
             options.PushIndent();
 
-            GenerateCustomizedPropertyStepBuilders(codeWriter, Keywords.GET, codeProperty.GetStepBuilderCollection, options);
+            GenerateCustomizedPropertySteps(codeWriter, Keywords.GET, codeProperty.GetStepCollection, options);
 
-            GenerateCustomizedPropertyStepBuilders(codeWriter, Keywords.SET, codeProperty.SetStepBuilderCollection, options);
+            GenerateCustomizedPropertySteps(codeWriter, Keywords.SET, codeProperty.SetStepCollection, options);
 
             options.PopIndent();
             codeWriter.Write(options.IndentString).WriteLine(Marks.RIGHT_BRACE);
         }
 
-        private void GenerateCustomizedPropertyStepBuilders(CodeWriter codeWriter, string keywords, StepBuilderCollection stepBuilderCollection, GenerateOptions options)
+        private void GenerateCustomizedPropertySteps(CodeWriter codeWriter, string keywords, StepCollection stepBuilderCollection, GenerateOptions options)
         {
-            if (stepBuilderCollection == null || stepBuilderCollection.StepBuilders == null || stepBuilderCollection.StepBuilders.Count == 0)
+            if (stepBuilderCollection == null || stepBuilderCollection.Steps == null || stepBuilderCollection.Steps.Count == 0)
             {
                 return;
             }
 
             //如果只有一行语句，则使用单行模式
-            if (stepBuilderCollection.StepBuilders.Count == 1 && stepBuilderCollection.StepBuilders.First() is StatementStepBuilder)
+            if (stepBuilderCollection.Steps.Count == 1 && stepBuilderCollection.Steps.First() is StatementStep)
             {
                 codeWriter.Write(options.IndentString).Write(keywords);
 
                 codeWriter.Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACE).Write(Marks.WHITESPACE);
 
-                codeWriter.Write((stepBuilderCollection.StepBuilders.First() as StatementStepBuilder).Statement);
+                codeWriter.Write((stepBuilderCollection.Steps.First() as StatementStep).Statement);
 
                 codeWriter.Write(Marks.WHITESPACE).WriteLine(Marks.RIGHT_BRACE);
             }
@@ -144,9 +144,9 @@ namespace Panosen.CodeDom.CSharp.Engine
                 codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
                 options.PushIndent();
 
-                foreach (var item in stepBuilderCollection.StepBuilders)
+                foreach (var item in stepBuilderCollection.Steps)
                 {
-                    GenerateStepBuilderOrCollection(item, codeWriter, options);
+                    GenerateStepOrCollection(item, codeWriter, options);
                 }
 
                 options.PopIndent();

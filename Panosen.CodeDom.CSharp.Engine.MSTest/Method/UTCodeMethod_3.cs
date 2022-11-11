@@ -10,9 +10,9 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
     {
         protected override void PrepareCodeMethod(CodeMethod codeMethod)
         {
-            var usingStepBuilder = codeMethod.StepUsing();
-            usingStepBuilder.Use("var conn = new SqlConnection(null)");
-            usingStepBuilder.StepStatement("name = age.ToString();")
+            var usingStep = codeMethod.StepUsing();
+            usingStep.Use("var conn = new SqlConnection(null)");
+            usingStep.StepStatement("name = age.ToString();")
                 .StepStatement("name = age.ToString();");
         }
 
