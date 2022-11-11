@@ -54,6 +54,33 @@ namespace Panosen.CodeDom.CSharp
         }
 
         /// <summary>
+        /// 添加一个步骤集合
+        /// </summary>
+        public static StepCollection AddStepCollection<TStepCollection>(this TStepCollection stepBuilderCollection)
+            where TStepCollection : StepCollection
+        {
+            StepCollection stepBuilder = new StepCollection();
+
+            stepBuilderCollection.Steps.Add(stepBuilder);
+
+            return stepBuilderCollection;
+        }
+
+        /// <summary>
+        /// 添加一个步骤集合
+        /// </summary>
+        public static StepCollection AddStepCollection<TStepCollection>(this TStepCollection stepBuilderCollection, string name)
+            where TStepCollection : StepCollection
+        {
+            StepCollection stepBuilder = new StepCollection();
+
+            stepBuilderCollection.Steps.Add(stepBuilder);
+            stepBuilderCollection.StepMap.Add(name, stepBuilder);
+
+            return stepBuilderCollection;
+        }
+
+        /// <summary>
         /// 添加一个空行
         /// </summary>
         public static TStepCollection StepEmpty<TStepCollection>(this TStepCollection stepBuilderCollection)
