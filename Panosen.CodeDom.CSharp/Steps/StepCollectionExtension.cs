@@ -63,7 +63,7 @@ namespace Panosen.CodeDom.CSharp
 
             stepBuilderCollection.Steps.Add(stepBuilder);
 
-            return stepBuilderCollection;
+            return stepBuilder;
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Panosen.CodeDom.CSharp
             stepBuilderCollection.Steps.Add(stepBuilder);
             stepBuilderCollection.StepMap.Add(name, stepBuilder);
 
-            return stepBuilderCollection;
+            return stepBuilder;
         }
 
         /// <summary>
