@@ -11,9 +11,6 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成属性
         /// </summary>
-        /// <param name="codeProperty"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
         public void GenerateProperty(CodeProperty codeProperty, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeProperty == null) { return; }
