@@ -82,7 +82,11 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             foreach (var motto in mottoList)
             {
-                codeWriter.Write(options.IndentString).Write("// ").WriteLine(motto);
+                var lines = motto.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var line in lines)
+                {
+                    codeWriter.Write(options.IndentString).Write("// ").WriteLine(line);
+                }
             }
             codeWriter.WriteLine();
         }
