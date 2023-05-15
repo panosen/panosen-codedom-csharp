@@ -138,5 +138,25 @@ namespace Panosen.CodeDom.CSharp
 
             return codeFile;
         }
+
+        /// <summary>
+        /// 添加一个Motto
+        /// </summary>
+        public static TCodeFile AddMottos<TCodeFile>(this TCodeFile codeFile, List<string> mottoList)
+            where TCodeFile : CodeFile
+        {
+            if (mottoList == null || mottoList.Count == 0)
+            {
+                return codeFile;
+            }
+            if (codeFile.MottoList == null)
+            {
+                codeFile.MottoList = new List<string>();
+            }
+
+            codeFile.MottoList.AddRange(mottoList);
+
+            return codeFile;
+        }
     }
 }
