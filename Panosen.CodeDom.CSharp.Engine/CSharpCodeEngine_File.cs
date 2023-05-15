@@ -11,14 +11,13 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成cs文件
         /// </summary>
-        /// <param name="codeFile"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
-        public void GenerateCodeFile(CodeFile codeFile, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateCodeFile(CodeWriter codeWriter, CodeFile codeFile, GenerateOptions options = null)
         {
             if (codeFile == null) { return; }
             if (codeWriter == null) { return; }
             options = options ?? new GenerateOptions();
+
+            GenerateMottoList(codeWriter, codeFile.MottoList, options);
 
             GenerateUsing(codeWriter, codeFile);
 
@@ -50,7 +49,7 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             foreach (var codeNamespace in namespaceList)
             {
-                GenerateNamespace(codeNamespace, codeWriter, options);
+                GenerateNamespace(codeWriter, codeNamespace, options);
             }
         }
 
@@ -66,6 +65,25 @@ namespace Panosen.CodeDom.CSharp.Engine
                 codeWriter.Write("using ").Write(usingItem).WriteLine(";");
             }
 
+            codeWriter.WriteLine();
+        }
+
+        /// <summary>
+        /// 生成文件摘要
+        /// </summary>
+        public void GenerateMottoList(CodeWriter codeWriter, List<string> mottoList, GenerateOptions options = null)
+        {
+            if (mottoList == null || mottoList.Count == 0)
+            {
+                return;
+            }
+            if (codeWriter == null) { return; }
+            options = options ?? new GenerateOptions();
+
+            foreach (var motto in mottoList)
+            {
+                codeWriter.Write(options.IndentString).Write("// ").WriteLine(motto);
+            }
             codeWriter.WriteLine();
         }
     }

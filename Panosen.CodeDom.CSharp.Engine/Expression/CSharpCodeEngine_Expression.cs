@@ -14,7 +14,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// GenerateExpresion
         /// </summary>
-        public void GenerateExpresion(CodeExpression codeExpression, CodeWriter codeWriter, GenerateOptions options)
+        public void GenerateExpresion(CodeWriter codeWriter, CodeExpression codeExpression, GenerateOptions options)
         {
             if (codeExpression == null) { return; }
             if (codeWriter == null) { return; }

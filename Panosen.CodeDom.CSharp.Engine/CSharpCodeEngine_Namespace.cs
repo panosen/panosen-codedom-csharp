@@ -11,10 +11,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成命名空间
         /// </summary>
-        /// <param name="codeNamespace"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
-        public void GenerateNamespace(CodeNamespace codeNamespace, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateNamespace(CodeWriter codeWriter, CodeNamespace codeNamespace, GenerateOptions options = null)
         {
             if (codeNamespace == null) { return; }
             if (codeWriter == null) { return; }
@@ -33,7 +30,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                 foreach (var codeClass in codeNamespace.ClassList)
                 {
                     codeWriter.WriteLine();
-                    GenerateClass(codeClass, codeWriter, options);
+                    GenerateClass(codeWriter, codeClass, options);
                 }
             }
 
@@ -42,7 +39,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                 foreach (var codeInterface in codeNamespace.InterfaceList)
                 {
                     codeWriter.WriteLine();
-                    GenerateInterface(codeInterface, codeWriter, options);
+                    GenerateInterface(codeWriter, codeInterface, options);
                 }
             }
 
@@ -51,7 +48,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                 foreach (var codeEnum in codeNamespace.EnumList)
                 {
                     codeWriter.WriteLine();
-                    GenerateEnum(codeEnum, codeWriter, options);
+                    GenerateEnum(codeWriter, codeEnum, options);
                 }
             }
 

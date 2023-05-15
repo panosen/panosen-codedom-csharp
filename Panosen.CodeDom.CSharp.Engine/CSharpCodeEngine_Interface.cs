@@ -11,10 +11,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成接口
         /// </summary>
-        /// <param name="codeInterface"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
-        public void GenerateInterface(CodeInterface codeInterface, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateInterface(CodeWriter codeWriter, CodeInterface codeInterface, GenerateOptions options = null)
         {
             if (codeInterface == null) { return; }
             if (codeWriter == null) { return; }
@@ -60,7 +57,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                 foreach (var codeMethod in codeInterface.MethodList)
                 {
                     codeWriter.WriteLine();
-                    GenerateMethod(codeMethod, codeWriter, options);
+                    GenerateMethod(codeWriter, codeMethod, options);
                 }
             }
 

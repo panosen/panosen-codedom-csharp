@@ -6,7 +6,7 @@ using System.Text;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeFile
+    public class UT_CodeFile_2
     {
         [TestMethod]
         public void TestMethod1()
@@ -21,7 +21,9 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 
             var actual = builder.ToString();
 
-            var expeced = @"using System;
+            var expeced = @"// 111
+
+using System;
 using System.Linq;
 
 using Newtonsoft.Json;
@@ -53,6 +55,8 @@ namespace TheNamespace
         private CodeFile GetData()
         {
             CodeFile codeFile = new CodeFile();
+
+            codeFile.AddMotto("111");
 
             codeFile.AddSystemUsing(SystemUsing.System);
             codeFile.AddSystemUsing(SystemUsing.SystemLinq);

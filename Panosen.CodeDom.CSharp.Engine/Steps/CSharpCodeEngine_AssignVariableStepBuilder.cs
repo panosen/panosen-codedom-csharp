@@ -13,7 +13,7 @@ namespace Panosen.CodeDom.CSharp.Engine
             codeWriter.Write(options.IndentString).Write(assignmentStep.Left)
                 .Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE);
 
-            GenerateExpresion(assignmentStep.Right, codeWriter, options);
+            GenerateExpresion(codeWriter, assignmentStep.Right,options);
 
             codeWriter.WriteLine(Marks.SEMICOLON);
         }

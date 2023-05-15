@@ -17,7 +17,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 
             StringBuilder builder = new StringBuilder();
 
-            generator.Generate(option, builder);
+            generator.Generate(builder, option);
 
             var actual = builder.ToString();
 

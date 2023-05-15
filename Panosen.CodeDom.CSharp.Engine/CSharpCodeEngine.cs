@@ -8,10 +8,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// Generate
         /// </summary>
-        /// <param name="code"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
-        public void Generate(Code code, CodeWriter codeWriter, GenerateOptions options = null)
+        public void Generate(CodeWriter codeWriter, Code code, GenerateOptions options = null)
         {
             if (code == null) { return; }
             if (codeWriter == null) { return; }
@@ -19,37 +16,37 @@ namespace Panosen.CodeDom.CSharp.Engine
 
             if (code is CodeNamespace)
             {
-                GenerateNamespace(code as CodeNamespace, codeWriter, options);
+                GenerateNamespace(codeWriter, code as CodeNamespace, options);
                 return;
             }
 
             if (code is CodeClass)
             {
-                GenerateClass(code as CodeClass, codeWriter, options);
+                GenerateClass(codeWriter, code as CodeClass, options);
                 return;
             }
 
             if (code is CodeInterface)
             {
-                GenerateInterface(code as CodeInterface, codeWriter, options);
+                GenerateInterface(codeWriter, code as CodeInterface, options);
                 return;
             }
 
             if (code is CodeExpression)
             {
-                GenerateExpresion(code as CodeExpression, codeWriter, options);
+                GenerateExpresion(codeWriter, code as CodeExpression, options);
                 return;
             }
 
             if (code is CodeMethod)
             {
-                GenerateMethod(code as CodeMethod, codeWriter, options);
+                GenerateMethod(codeWriter, code as CodeMethod, options);
                 return;
             }
 
             if (code is CodeEnum)
             {
-                GenerateEnum(code as CodeEnum, codeWriter, options);
+                GenerateEnum(codeWriter, code as CodeEnum, options);
                 return;
             }
         }

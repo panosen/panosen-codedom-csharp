@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成类
         /// </summary>
-        public void GenerateEnum(CodeEnum codeEnum, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateEnum(CodeWriter codeWriter, CodeEnum codeEnum,  GenerateOptions options = null)
         {
             if (codeEnum == null) { return; }
             if (codeWriter == null) { return; }

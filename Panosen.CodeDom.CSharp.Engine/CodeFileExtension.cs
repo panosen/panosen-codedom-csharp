@@ -15,15 +15,13 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// TransformText
         /// </summary>
-        /// <param name="codeFile"></param>
-        /// <returns></returns>
         public static string TransformText(this CodeFile codeFile)
         {
             CSharpCodeEngine generator = new CSharpCodeEngine();
 
             StringBuilder builder = new StringBuilder();
 
-            generator.GenerateCodeFile(codeFile, builder);
+            generator.GenerateCodeFile(builder, codeFile);
 
             return builder.ToString();
         }

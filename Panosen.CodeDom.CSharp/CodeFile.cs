@@ -30,6 +30,11 @@ namespace Panosen.CodeDom.CSharp
         /// 当前项目的引用
         /// </summary>
         public List<string> ProjectUsingList { get; set; }
+
+        /// <summary>
+        /// 项目说明
+        /// </summary>
+        public List<string> MottoList { get; set; }
     }
 
     /// <summary>
@@ -114,6 +119,22 @@ namespace Panosen.CodeDom.CSharp
             }
 
             codeFile.ProjectUsingList.Add(projectUsing);
+
+            return codeFile;
+        }
+
+        /// <summary>
+        /// 添加一个Motto
+        /// </summary>
+        public static TCodeFile AddMotto<TCodeFile>(this TCodeFile codeFile, string motto)
+            where TCodeFile : CodeFile
+        {
+            if (codeFile.MottoList == null)
+            {
+                codeFile.MottoList = new List<string>();
+            }
+
+            codeFile.MottoList.Add(motto);
 
             return codeFile;
         }

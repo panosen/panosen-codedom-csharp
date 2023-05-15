@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成类
         /// </summary>
-        public void GenerateClass(CodeClass codeClass, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateClass(CodeWriter codeWriter, CodeClass codeClass, GenerateOptions options = null)
         {
             if (codeClass == null) { return; }
             if (codeWriter == null) { return; }
@@ -111,7 +111,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                 foreach (var codeConstructor in codeClass.ConstructorList)
                 {
                     codeWriter.WriteLine();
-                    GenerateMethod(codeConstructor, codeWriter, options);
+                    GenerateMethod(codeWriter, codeConstructor,  options);
                 }
             }
 
@@ -120,7 +120,7 @@ namespace Panosen.CodeDom.CSharp.Engine
                 foreach (var codeMethod in codeClass.MethodList)
                 {
                     codeWriter.WriteLine();
-                    GenerateMethod(codeMethod, codeWriter, options);
+                    GenerateMethod(codeWriter, codeMethod, options);
                 }
             }
 

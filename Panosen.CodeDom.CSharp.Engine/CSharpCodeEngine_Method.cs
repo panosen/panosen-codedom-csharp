@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.CSharp.Engine
         /// <summary>
         /// 生成方法
         /// </summary>
-        public void GenerateMethod(CodeMethod codeMethod, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateMethod(CodeWriter codeWriter, CodeMethod codeMethod, GenerateOptions options = null)
         {
             if (codeMethod == null) { return; }
             if (codeWriter == null) { return; }

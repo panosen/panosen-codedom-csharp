@@ -23,10 +23,10 @@ namespace Panosen.CodeDom.CSharp.Engine
             if (codeExpression.Target == null) { return; }
             if (codeExpression.Reference == null) { return; }
 
-            GenerateExpresion(codeExpression.Target, codeWriter, options);
+            GenerateExpresion(codeWriter, codeExpression.Target, options);
             codeWriter.Write(".");
 
-            GenerateExpresion(codeExpression.Reference, codeWriter, options);
+            GenerateExpresion(codeWriter, codeExpression.Reference, options);
         }
     }
 }
