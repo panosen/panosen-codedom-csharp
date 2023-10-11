@@ -1,14 +1,33 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeInterface : UTBase
+    public class UT_CodeInterface
     {
-        protected override Code PrepareCode()
+        [TestMethod]
+        public void Test()
+        {
+            var code = PrepareCode();
+
+            CSharpCodeEngine generator = new CSharpCodeEngine();
+
+            StringBuilder builder = new StringBuilder();
+
+            generator.GenerateInterface(new StringWriter(builder), code);
+
+            var actual = builder.ToString();
+
+            var expeced = PrepareExpected();
+
+            Assert.AreEqual(expeced, actual);
+        }
+
+        protected CodeInterface PrepareCode()
         {
             CodeInterface codeInterface = new CodeInterface();
             codeInterface.Name = "IStudentRepository";
@@ -43,7 +62,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
             return codeInterface;
         }
 
-        protected override string PrepareExpected()
+        protected string PrepareExpected()
         {
             return @"/// <summary>
 /// Student

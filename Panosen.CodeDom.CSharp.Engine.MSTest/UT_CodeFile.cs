@@ -11,13 +11,13 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
         [TestMethod]
         public void TestMethod1()
         {
-            var option = GetData();
+            var code = GetData();
 
             CSharpCodeEngine generator = new CSharpCodeEngine();
 
             StringBuilder builder = new StringBuilder();
 
-            generator.GenerateCodeFile(builder, option);
+            generator.GenerateCodeFile(new StringWriter(builder), code);
 
             var actual = builder.ToString();
 

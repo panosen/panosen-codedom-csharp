@@ -8,6 +8,9 @@ namespace Panosen.CodeDom.CSharp.Engine
 {
     partial class CSharpCodeEngine
     {
+        /// <summary>
+        /// GenerateAttribute
+        /// </summary>
         private void GenerateAttribute(CodeAttribute codeAttribute, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeAttribute == null) { return; }

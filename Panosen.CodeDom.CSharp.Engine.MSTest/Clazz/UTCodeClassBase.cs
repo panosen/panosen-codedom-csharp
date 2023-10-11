@@ -2,22 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
-    public abstract class UTBase
+    public abstract class UTCodeClassBase
     {
         [TestMethod]
         public void Test()
         {
-            var option = PrepareCode();
+            var code = PrepareCode();
 
             CSharpCodeEngine generator = new CSharpCodeEngine();
 
             StringBuilder builder = new StringBuilder();
 
-            generator.Generate(builder, option);
+            generator.GenerateClass(new StringWriter(builder), code);
 
             var actual = builder.ToString();
 
@@ -28,6 +30,6 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 
         protected abstract string PrepareExpected();
 
-        protected abstract Code PrepareCode();
+        protected abstract CodeClass PrepareCode();
     }
 }

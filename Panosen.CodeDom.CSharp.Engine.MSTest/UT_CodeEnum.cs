@@ -7,9 +7,27 @@ using System.Text;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeEnum : UTBase
+    public class UT_CodeEnum
     {
-        protected override string PrepareExpected()
+        [TestMethod]
+        public void Test()
+        {
+            var code = PrepareCode();
+
+            CSharpCodeEngine generator = new CSharpCodeEngine();
+
+            StringBuilder builder = new StringBuilder();
+
+            generator.GenerateEnum(new StringWriter(builder), code);
+
+            var actual = builder.ToString();
+
+            var expeced = PrepareExpected();
+
+            Assert.AreEqual(expeced, actual);
+        }
+
+        protected string PrepareExpected()
         {
             return @"/// <summary>
 /// 状态
@@ -47,7 +65,7 @@ public enum Status
 ";
         }
 
-        protected override Code PrepareCode()
+        protected CodeEnum PrepareCode()
         {
             CodeEnum codeEnum = new CodeEnum();
             codeEnum.Name = "Status";

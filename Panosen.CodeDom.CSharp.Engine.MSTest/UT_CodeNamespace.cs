@@ -1,14 +1,33 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeNamespace : UTBase
+    public class UT_CodeNamespace
     {
-        protected override Code PrepareCode()
+        [TestMethod]
+        public void Test()
+        {
+            var code = PrepareCode();
+
+            CSharpCodeEngine generator = new CSharpCodeEngine();
+
+            StringBuilder builder = new StringBuilder();
+
+            generator.GenerateNamespace(new StringWriter(builder), code);
+
+            var actual = builder.ToString();
+
+            var expeced = PrepareExpected();
+
+            Assert.AreEqual(expeced, actual);
+        }
+
+        protected CodeNamespace PrepareCode()
         {
             CodeNamespace codeNamespace = new CodeNamespace();
             codeNamespace.Name = "TheNamespace";
@@ -27,7 +46,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
             return codeNamespace;
         }
 
-        protected override string PrepareExpected()
+        protected string PrepareExpected()
         {
             return @"namespace TheNamespace
 {

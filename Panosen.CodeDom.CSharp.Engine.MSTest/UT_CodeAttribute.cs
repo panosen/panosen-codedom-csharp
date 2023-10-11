@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -7,9 +8,27 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeAttribute : UTBase
+    public class UT_CodeAttribute
     {
-        protected override string PrepareExpected()
+        [TestMethod]
+        public void Test()
+        {
+            var code = PrepareCode();
+
+            CSharpCodeEngine generator = new CSharpCodeEngine();
+
+            StringBuilder builder = new StringBuilder();
+
+            generator.GenerateClass(new StringWriter(builder), code);
+
+            var actual = builder.ToString();
+
+            var expeced = PrepareExpected();
+
+            Assert.AreEqual(expeced, actual);
+        }
+
+        protected string PrepareExpected()
         {
             return @"public class Student
 {
@@ -23,7 +42,7 @@ namespace Panosen.CodeDom.CSharp.Engine.MSTest
 ";
         }
 
-        protected override Code PrepareCode()
+        protected CodeClass PrepareCode()
         {
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";

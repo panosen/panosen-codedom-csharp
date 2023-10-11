@@ -7,7 +7,7 @@ using System.Text;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest
 {
     [TestClass]
-    public class UT_CodeClass : UTBase
+    public class UT_CodeClass : UTCodeClassBase
     {
         protected override string PrepareExpected()
         {
@@ -116,7 +116,7 @@ public class Student
 ";
         }
 
-        protected override Code PrepareCode()
+        protected override CodeClass PrepareCode()
         {
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";
