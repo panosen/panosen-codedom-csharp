@@ -6,7 +6,7 @@ using System.Text;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
 {
     [TestClass]
-    public class UTCodeMethod_8 : UTCodeMethodBase
+    public class UTCodeMethod_StepStatementChain_8 : UTCodeMethodBase
     {
         protected override void PrepareCodeMethod(CodeMethod codeMethod)
         {

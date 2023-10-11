@@ -6,21 +6,24 @@ using System.Text;
 namespace Panosen.CodeDom.CSharp.Engine.MSTest.Method
 {
     [TestClass]
-    public class UTCodeMethod_9 : UTCodeMethodBase
+    public class UTCodeMethod_StepStatementChain_1 : UTCodeMethodBase
     {
         protected override void PrepareCodeMethod(CodeMethod codeMethod)
         {
             var xx = codeMethod.StepStatementChain("this");
-            xx.AddCallMethodExpression("MethodA");
-            xx.AddCallMethodExpression("MethodB", true);
+            xx.AddCallMethodExpression("MethodC");
+            xx.AddCallMethodExpression("MethodD", true).AddParameterOfLamdaNewInstance().SetParameter("v").SetClassName("Student").StepStatement("Name = 2");
         }
 
         protected override string PrepareExpected()
         {
             return @"public TestMethod()
 {
-    this.MethodA()
-        .MethodB();
+    this.MethodC()
+        .MethodD(v => new Student
+        {
+            Name = 2
+        });
 }
 ";
         }
