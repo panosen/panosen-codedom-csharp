@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.CSharp
     /// <summary>
     /// x => new Item { }
     /// </summary>
-    public class CodeLamdaNewInstance : DataItem
+    public sealed class CodeLamdaNewInstance : DataItem
     {
         /// <summary>
         /// 参数
@@ -40,39 +40,36 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// SetParameter
         /// </summary>
-        public static TCodeLamdaNewInstanceExpression SetParameter<TCodeLamdaNewInstanceExpression>(this TCodeLamdaNewInstanceExpression codeLamdaNewInstanceExpression, string parameter)
-            where TCodeLamdaNewInstanceExpression : CodeLamdaNewInstance
+        public static CodeLamdaNewInstance SetParameter(this CodeLamdaNewInstance codeLamdaNewInstance, string parameter)
         {
-            codeLamdaNewInstanceExpression.Parameter = parameter;
+            codeLamdaNewInstance.Parameter = parameter;
 
-            return codeLamdaNewInstanceExpression;
+            return codeLamdaNewInstance;
         }
 
         /// <summary>
         /// SetBooleanExpression
         /// </summary>
-        public static TCodeLamdaNewInstanceExpression SetClassName<TCodeLamdaNewInstanceExpression>(this TCodeLamdaNewInstanceExpression codeLamdaNewInstanceExpression, string className)
-            where TCodeLamdaNewInstanceExpression : CodeLamdaNewInstance
+        public static CodeLamdaNewInstance SetClassName(this CodeLamdaNewInstance codeLamdaNewInstance, string className)
         {
-            codeLamdaNewInstanceExpression.ClassName = className;
+            codeLamdaNewInstance.ClassName = className;
 
-            return codeLamdaNewInstanceExpression;
+            return codeLamdaNewInstance;
         }
 
         /// <summary>
         /// SetBooleanExpression
         /// </summary>
-        public static TCodeLamdaNewInstanceExpression StepStatement<TCodeLamdaNewInstanceExpression>(this TCodeLamdaNewInstanceExpression codeLamdaNewInstanceExpression, string statement)
-            where TCodeLamdaNewInstanceExpression : CodeLamdaNewInstance
+        public static CodeLamdaNewInstance StepStatement(this CodeLamdaNewInstance codeLamdaNewInstance, string statement)
         {
-            if (codeLamdaNewInstanceExpression.Statements == null)
+            if (codeLamdaNewInstance.Statements == null)
             {
-                codeLamdaNewInstanceExpression.Statements = new List<string>();
+                codeLamdaNewInstance.Statements = new List<string>();
             }
 
-            codeLamdaNewInstanceExpression.Statements.Add(statement);
+            codeLamdaNewInstance.Statements.Add(statement);
 
-            return codeLamdaNewInstanceExpression;
+            return codeLamdaNewInstance;
         }
     }
 }
