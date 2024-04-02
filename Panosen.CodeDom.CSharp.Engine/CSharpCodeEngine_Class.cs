@@ -51,6 +51,11 @@ namespace Panosen.CodeDom.CSharp.Engine
                 codeWriter.Write(Keywords.PARTIAL).Write(Marks.WHITESPACE);
             }
 
+            if (codeClass.IsSealed)
+            {
+                codeWriter.Write(Keywords.SEALED).Write(Marks.WHITESPACE);
+            }
+
             codeWriter.Write(Keywords.CLASS).Write(Marks.WHITESPACE).Write(codeClass.Name ?? string.Empty);
 
             //泛型参数

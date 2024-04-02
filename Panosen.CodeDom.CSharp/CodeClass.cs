@@ -25,6 +25,11 @@ namespace Panosen.CodeDom.CSharp
         public bool IsPartial { get; set; }
 
         /// <summary>
+        /// 是否是密封类
+        /// </summary>
+        public bool IsSealed { get; set; }
+
+        /// <summary>
         /// 访问修饰符
         /// </summary>
         public AccessModifiers AccessModifiers { get; set; }
@@ -337,6 +342,23 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// 添加常量
         /// </summary>
+        public static CodeConstant AddConstant<TCodeClass>(this TCodeClass codeClass) where TCodeClass : CodeClass
+        {
+            if (codeClass.ConstantList == null)
+            {
+                codeClass.ConstantList = new List<CodeConstant>();
+            }
+
+            CodeConstant codeConstant = new CodeConstant();
+
+            codeClass.ConstantList.Add(codeConstant);
+
+            return codeConstant;
+        }
+
+        /// <summary>
+        /// 添加常量
+        /// </summary>
         public static TCodeClass AddConstant<TCodeClass>(this TCodeClass codeClass, CodeConstant codeConstant) where TCodeClass : CodeClass
         {
             if (codeClass.ConstantList == null)
@@ -347,6 +369,28 @@ namespace Panosen.CodeDom.CSharp
             codeClass.ConstantList.Add(codeConstant);
 
             return codeClass;
+        }
+
+        /// <summary>
+        /// 添加常量
+        /// </summary>
+        public static CodeConstant AddConstant(this CodeClass codeClass, AccessModifiers accessModifiers, string type, string name, DataValue value, string summary = null)
+        {
+            if (codeClass.ConstantList == null)
+            {
+                codeClass.ConstantList = new List<CodeConstant>();
+            }
+
+            CodeConstant codeConstant = new CodeConstant();
+            codeConstant.AccessModifiers = accessModifiers;
+            codeConstant.Name = name;
+            codeConstant.Type = type;
+            codeConstant.Value = value;
+            codeConstant.Summary = summary;
+
+            codeClass.ConstantList.Add(codeConstant);
+
+            return codeConstant;
         }
 
         /// <summary>
@@ -383,28 +427,6 @@ namespace Panosen.CodeDom.CSharp
         }
 
         /// <summary>
-        /// 添加常量
-        /// </summary>
-        public static CodeConstant AddConstant(this CodeClass codeClass, AccessModifiers accessModifiers, string type, string name, string value, string summary = null)
-        {
-            if (codeClass.ConstantList == null)
-            {
-                codeClass.ConstantList = new List<CodeConstant>();
-            }
-
-            CodeConstant codeConstant = new CodeConstant();
-            codeConstant.AccessModifiers = accessModifiers;
-            codeConstant.Name = name;
-            codeConstant.Type = type;
-            codeConstant.Value = value;
-            codeConstant.Summary = summary;
-
-            codeClass.ConstantList.Add(codeConstant);
-
-            return codeConstant;
-        }
-
-        /// <summary>
         /// 设置IsAbstract
         /// </summary>
         public static TCodeClass SetIsAbstract<TCodeClass>(this TCodeClass codeClass, bool isAbstract) where TCodeClass : CodeClass
@@ -430,6 +452,16 @@ namespace Panosen.CodeDom.CSharp
         public static TCodeClass SetIsPartial<TCodeClass>(this TCodeClass codeClass, bool isPartial) where TCodeClass : CodeClass
         {
             codeClass.IsPartial = isPartial;
+
+            return codeClass;
+        }
+
+        /// <summary>
+        /// 设置IsSealed
+        /// </summary>
+        public static TCodeClass SetIsSealed<TCodeClass>(this TCodeClass codeClass, bool isSealed) where TCodeClass : CodeClass
+        {
+            codeClass.IsSealed = isSealed;
 
             return codeClass;
         }

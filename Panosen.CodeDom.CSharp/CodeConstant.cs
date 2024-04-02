@@ -24,6 +24,6 @@ namespace Panosen.CodeDom.CSharp
         /// <summary>
         /// Value
         /// </summary>
-        public string Value { get; set; }
+        public DataValue Value { get; set; }
     }
 }
